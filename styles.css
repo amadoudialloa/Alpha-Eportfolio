@@ -1,0 +1,366 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+section {
+    background-color: white;
+}
+
+.logo {
+        width: 80px; /* Adjust the width and height to create your desired circle size */
+        height: 80px;
+        border-radius: 45%; /* This property makes the image circular */
+        object-fit: cover; /* Helps maintain the aspect ratio of the image */
+}
+
+.hero {
+    background-color: #1d5c5b;
+    height: 100vh;
+    color: white;
+    font-size: 40px;
+}
+
+footer {
+    background-color: rgb(27, 106, 85);
+    color: white;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+    width: 500px;
+    justify-content: space-around;
+    font-size: 24px;
+}
+
+li {
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 90px;
+    margin: 0;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+p {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.subtext {
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.hero-area {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero-text {
+    margin-left: 80px;
+    margin-bottom: 200px;
+}
+
+.button {
+    width: 200px;
+    height: 55px;
+    border-radius: 30px;
+    background-color: coral;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 300;
+    padding-top: 5px;
+    margin-top: 20px;
+}
+
+.button:hover {
+    background-color: #ef744b;
+}
+
+.button:active {
+    background-color: #A9A9A9;
+    color: #808080;
+}
+
+.socials {
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    height: 80px;
+    margin: 30px;
+}
+.social {
+    margin: 20px;
+}
+
+.sub-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 60px;
+}
+
+.sub-section-alternative {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 60px;
+}
+
+
+.headshot {
+    width: 230px;
+    border-radius: 500px;
+    margin-left: 80px;
+}
+
+.headshot-container {
+    display: flex;
+    align-items: center;
+}
+
+.project-card {
+    width: 300px;
+    height: 500px;
+    box-shadow: 5px 5px 20px rgb(197, 195, 195);
+    margin: 10px;
+}
+
+.project-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+@media only screen and (max-width: 1000px) {
+    .project-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+.project-image {
+    margin-top: 25px;
+    width: 250px;
+    border-radius: 125px;
+}
+
+hr {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.project-link {
+    text-decoration: none;
+    color: #ef744b;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Centered section title */
+.section-title {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+/* Style for each experience entry */
+.entry {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Centered entry title and style for company, date, and description */
+.entry-title {
+    font-size: 20px;
+    text-align: center;
+    color: #007BFF;
+}
+
+.entry-company {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.entry-date {
+    font-size: 14px;
+    text-align: center;
+    color: #777;
+    margin-top: 5px;
+}
+
+.entry-description {
+    font-size: 16px;
+    margin-top: 10px;
+    max-width: 300px; /* Adjust this value as needed */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Centered section title */
+.section-title {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+/* Style for each education entry */
+.entry {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Centered entry title and style for university and graduation date */
+.entry-title {
+    font-size: 20px;
+    text-align: center;
+    color: #d1751e;
+}
+
+.entry-university {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.entry-graduation {
+    font-size: 14px;
+    text-align: center;
+    color: #777;
+    margin-top: 5px;
+}
+
+/* Condense the entry description and set a maximum width */
+.entry-description {
+    font-size: 16px;
+    margin-top: 10px;
+    max-width: 500px; /* Adjust this value as needed */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Centered section title */
+.section-title {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+/* Centered skills section container */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Start items from the left */
+}
+
+/* Style for skill categories */
+.skill-category {
+    background-color: #fff;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-width: calc(20% - 20px); /* Each category takes 50% of the container width with a little spacing */
+    flex-grow: 1; /* Allow categories to grow and fill available space */
+}
+
+/* Centered category title and style for skill list */
+.category-title {
+    font-size: 20px;
+    text-align: center;
+    color: #e28113;
+    margin-bottom: 10px;
+}
+
+/* Style for individual skill items */
+.category-list {
+    list-style-type: none;
+    padding-left: 0;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Start items from the left */
+}
+
+/* Style for individual skill items */
+.skill-item {
+    font-size: 16px;
+    margin: 5px;
+    background-color: #f2aa2d;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+
+
+.hamburger {
+    display: none;
+}
+
+.hamburger:focus{
+    outline: 0;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .hamburger {
+        display: block;
+        border: 0;
+        background-color: transparent;
+        color: white;
+        font-size: 30px;
+        margin: 20px;
+        align-self: flex-end;
+    }
+
+    ul {
+        display: none;
+        background-color: #2b2c38;
+        margin: 0ppx;
+    }
+
+    ul.show {
+        display: block;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column-reverse;
+        background-color: #2b2c38;
+    }
+
+    .logo {
+        display: none;
+    }
+}
