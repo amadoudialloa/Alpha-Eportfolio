@@ -182,7 +182,8 @@ hr {
 
 .project-card .project-goals li {
     margin-bottom: 5px;
-    font-size: 20px;
+    font-size: 30px;
+    margin-left: 20px;
 }
 
 a {
