@@ -184,9 +184,6 @@ hr {
     margin-top: 10px;
 }
 
-.project-card ul li {
-    margin-bottom: 5px;
-}
 
 .project-goals {
     list-style-type: disc;
@@ -196,6 +193,8 @@ hr {
 
 .project-goals li {
     margin-bottom: 5px;
+    font-size: 5px;
+    overflow-wrap: break-word;
 }
 
 a {
