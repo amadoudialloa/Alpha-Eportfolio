@@ -173,13 +173,13 @@ hr {
 
 .project-goals {
     list-style-type: disc;
-    padding-left: 4px; /* Adjusted padding-left for list items */
+    padding-right: 40px; /* Adjusted padding-left for list items */
     margin-top: 10px;
     margin-bottom: 0; /* Ensure no extra margin below the list */
     flex: 1; /* Allow the list to expand to fill remaining space */
 }
 
-.project-card .project-goals li {
+.project-goals li {
     margin-bottom: 5px;
     display: block;
     font-size: 16px; /* Adjusted font size for list items */
