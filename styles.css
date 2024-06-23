@@ -171,6 +171,16 @@ hr {
     color: #ef744b;
 }
 
+.project-goals {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.project-goals li {
+    margin-bottom: 5px;
+}
+
 a {
     text-decoration: none;
     color: white;
