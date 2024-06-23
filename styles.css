@@ -179,7 +179,7 @@ hr {
     color: #ef744b;
 }
 
-.project-card .project-goals {
+ul .project-goals {
     list-style-type: disc;
     padding-left: 20px; /* Adjust as needed */
     margin-top: 10px;
