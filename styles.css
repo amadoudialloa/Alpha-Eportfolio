@@ -179,7 +179,7 @@ hr {
     flex: 1; /* Allow the list to expand to fill remaining space */
 }
 
-.project-goals li {
+.project-card .project-goals li {
     margin-bottom: 5px;
     display: block;
     font-size: 16px; /* Adjusted font size for list items */
