@@ -171,7 +171,7 @@ hr {
     color: #ef744b;
 }
 
-.project-goals {
+ul .subtext {
     list-style-type: disc;
     padding-right: 400px; /* Adjusted padding-left for list items */
     margin-top: 10px;
