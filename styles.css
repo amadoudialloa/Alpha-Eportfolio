@@ -124,7 +124,6 @@ p {
     padding: 60px;
 }
 
-
 .headshot {
     width: 230px;
     border-radius: 500px;
@@ -138,9 +137,12 @@ p {
 
 .project-card {
     width: 300px;
-    height: 500px;
     box-shadow: 5px 5px 20px rgb(197, 195, 195);
     margin: 10px;
+    padding: 20px; /* Added padding for better spacing */
+    border-radius: 10px; /* Added border-radius for rounded corners */
+    background-color: #fff; /* Added background color for better visibility */
+    text-align: left; /* Ensure text is left-aligned */
 }
 
 .project-container {
@@ -162,8 +164,9 @@ p {
 }
 
 hr {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin: 20px 0; /* Adjusted for consistency */
+    border: none; /* Remove default border */
+    border-top: 1px solid #eee; /* Add custom border */
 }
 
 .project-link {
@@ -173,6 +176,16 @@ hr {
 
 .project-link:hover {
     text-decoration: underline;
+}
+
+.project-card ul {
+    list-style-type: disc; /* Disc style list */
+    padding-left: 20px; /* Indent the list */
+    margin-top: 10px; /* Margin at the top */
+}
+
+.project-card ul li {
+    margin-bottom: 5px; /* Space between list items */
 }
 
 a {
