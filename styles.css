@@ -154,6 +154,12 @@ nav img.logo {
     padding: 1rem;
     width: 300px;
     text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .project-card img {
@@ -226,6 +232,15 @@ nav img.logo {
     margin-bottom: 0.5rem;
 }
 
+/* Freelance Services Section */
+.sub-section-alternative #freelance-services .project-container .project-card ul {
+    text-align: left;
+}
+
+.project-card ul li {
+    margin-bottom: 0.5rem;
+}
+
 /* Footer Section */
 footer {
     background-color: #333;
@@ -284,3 +299,4 @@ footer a:hover {
         align-items: center;
     }
 }
+
