@@ -143,7 +143,7 @@ p {
     padding: 20px;
     border-radius: 10px;
     background-color: #fff;
-    text-align: left;
+    text-align: center;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -181,7 +181,7 @@ hr {
 
 ul .project-goals {
     list-style-type: disc;
-    padding-left: 20px; /* Adjust as needed */
+    padding-left: 40px; /* Adjust as needed */
     margin-top: 10px;
     margin-bottom: 0; /* Ensure no extra margin below the list */
     flex-grow: 1; /* Allow the list to expand to fill remaining space */
