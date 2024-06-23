@@ -146,6 +146,7 @@ p {
 .project-container {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -171,21 +172,19 @@ hr {
     color: #ef744b;
 }
 
-ul .subtext {
+.project-card .project-goals {
     list-style-type: disc;
-    padding-right: 400px; /* Adjusted padding-left for list items */
+    padding-left: 20px; /* Adjust as needed */
     margin-top: 10px;
     margin-bottom: 0; /* Ensure no extra margin below the list */
-    flex: 1; /* Allow the list to expand to fill remaining space */
-    display: flex;
-    flex-wrap: wrap;
 }
 
-.subtext li {
+.project-card .project-goals li {
     margin-bottom: 5px;
-    display: block;
-    font-size: 16px; /* Adjusted font size for list items */
+    font-size: 16px; /* Adjust as needed */
+    word-wrap: break-word; /* Ensure long words break to the next line */
 }
+
 
 a {
     text-decoration: none;
