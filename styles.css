@@ -171,6 +171,10 @@ hr {
     color: #ef744b;
 }
 
+.project-link:hover {
+    text-decoration: underline;
+}
+
 a {
     text-decoration: none;
     color: white;
