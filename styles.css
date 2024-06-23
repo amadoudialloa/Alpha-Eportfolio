@@ -1,366 +1,286 @@
+/* General Styles */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
 }
 
-section {
-    background-color: white;
-}
-
-.logo {
-        width: 80px; /* Adjust the width and height to create your desired circle size */
-        height: 80px;
-        border-radius: 45%; /* This property makes the image circular */
-        object-fit: cover; /* Helps maintain the aspect ratio of the image */
-}
-
-.hero {
-    background-color: #1d5c5b;
-    height: 100vh;
-    color: white;
-    font-size: 40px;
-}
-
-footer {
-    background-color: rgb(27, 106, 85);
-    color: white;
-    text-align: center;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-}
-
-ul {
-    display: flex;
-    list-style-type: none;
-    width: 500px;
-    justify-content: space-around;
-    font-size: 24px;
-}
-
-li {
-    text-decoration: none;
+h1, h2, h3, h4 {
+    font-weight: 700;
 }
 
 h1 {
-    font-size: 90px;
+    font-size: 3rem;
     margin: 0;
 }
 
 h2 {
-    font-size: 40px;
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+h4 {
+    font-size: 1.5rem;
 }
 
 p {
-    margin: 0;
-    font-size: 20px;
-    font-weight: 300;
-}
-
-.subtext {
-    font-size: 15px;
-    font-weight: 300;
-}
-
-.hero-area {
-    display: flex;
-    height: 100%;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.hero-text {
-    margin-left: 80px;
-    margin-bottom: 200px;
-}
-
-.button {
-    width: 200px;
-    height: 55px;
-    border-radius: 30px;
-    background-color: coral;
-    text-align: center;
-    font-size: 30px;
-    font-weight: 300;
-    padding-top: 5px;
-    margin-top: 20px;
-}
-
-.button:hover {
-    background-color: #ef744b;
-}
-
-.button:active {
-    background-color: #A9A9A9;
-    color: #808080;
-}
-
-.socials {
-    padding-bottom: 30px;
-    display: flex;
-    justify-content: center;
-}
-
-.logo {
-    height: 80px;
-    margin: 30px;
-}
-.social {
-    margin: 20px;
-}
-
-.sub-section {
-    display: flex;
-    justify-content: space-around;
-    padding: 60px;
-}
-
-.sub-section-alternative {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    padding: 60px;
-}
-
-
-.headshot {
-    width: 230px;
-    border-radius: 500px;
-    margin-left: 80px;
-}
-
-.headshot-container {
-    display: flex;
-    align-items: center;
-}
-
-.project-card {
-    width: 300px;
-    height: 500px;
-    box-shadow: 5px 5px 20px rgb(197, 195, 195);
-    margin: 10px;
-}
-
-.project-container {
-    display: flex;
-    justify-content: space-around;
-}
-
-@media only screen and (max-width: 1000px) {
-    .project-container {
-        display: flex;
-        flex-wrap: wrap;
-    }
-}
-
-.project-image {
-    margin-top: 25px;
-    width: 250px;
-    border-radius: 125px;
-}
-
-hr {
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-.project-link {
-    text-decoration: none;
-    color: #ef744b;
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 a {
     text-decoration: none;
-    color: white;
+    color: inherit;
 }
 
-/* Centered section title */
-.section-title {
-    text-align: center;
-    font-size: 40px;
-    margin-bottom: 20px;
+ul {
+    list-style: none;
+    padding: 0;
 }
 
-/* Style for each experience entry */
-.entry {
-    background-color: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+img {
+    max-width: 100%;
 }
 
-/* Centered entry title and style for company, date, and description */
-.entry-title {
-    font-size: 20px;
-    text-align: center;
-    color: #007BFF;
-}
-
-.entry-company {
-    font-size: 16px;
-    text-align: center;
-    margin-top: 10px;
-}
-
-.entry-date {
-    font-size: 14px;
-    text-align: center;
-    color: #777;
-    margin-top: 5px;
-}
-
-.entry-description {
-    font-size: 16px;
-    margin-top: 10px;
-    max-width: 300px; /* Adjust this value as needed */
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Centered section title */
-.section-title {
-    text-align: center;
-    font-size: 40px;
-    margin-bottom: 20px;
-}
-
-/* Style for each education entry */
-.entry {
-    background-color: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Centered entry title and style for university and graduation date */
-.entry-title {
-    font-size: 20px;
-    text-align: center;
-    color: #d1751e;
-}
-
-.entry-university {
-    font-size: 16px;
-    text-align: center;
-    margin-top: 10px;
-}
-
-.entry-graduation {
-    font-size: 14px;
-    text-align: center;
-    color: #777;
-    margin-top: 5px;
-}
-
-/* Condense the entry description and set a maximum width */
-.entry-description {
-    font-size: 16px;
-    margin-top: 10px;
-    max-width: 500px; /* Adjust this value as needed */
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-/* Centered section title */
-.section-title {
-    text-align: center;
-    font-size: 40px;
-    margin-bottom: 20px;
-}
-
-/* Centered skills section container */
-.skills-container {
+/* Navigation Styles */
+nav {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start; /* Start items from the left */
-}
-
-/* Style for skill categories */
-.skill-category {
-    background-color: #fff;
-    margin: 10px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    min-width: calc(20% - 20px); /* Each category takes 50% of the container width with a little spacing */
-    flex-grow: 1; /* Allow categories to grow and fill available space */
-}
-
-/* Centered category title and style for skill list */
-.category-title {
-    font-size: 20px;
-    text-align: center;
-    color: #e28113;
-    margin-bottom: 10px;
-}
-
-/* Style for individual skill items */
-.category-list {
-    list-style-type: none;
-    padding-left: 0;
-    text-align: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start; /* Start items from the left */
-}
-
-/* Style for individual skill items */
-.skill-item {
-    font-size: 16px;
-    margin: 5px;
-    background-color: #f2aa2d;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 1rem 2rem;
     color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
 }
 
+nav img.logo {
+    height: 50px;
+}
 
+#nav-list {
+    display: flex;
+    gap: 1.5rem;
+}
+
+#nav-list li a {
+    color: #fff;
+    font-weight: 600;
+}
 
 .hamburger {
     display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
 }
 
-.hamburger:focus{
-    outline: 0;
+/* Hero Section Styles */
+.hero {
+    background: url('hero-image.jpg') no-repeat center center/cover;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
+.hero h1 {
+    margin-bottom: 1rem;
+}
 
-@media only screen and (max-width: 1000px) {
+.hero p {
+    margin-bottom: 2rem;
+}
+
+.hero .button a {
+    background-color: #333;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.hero .button a:hover {
+    background-color: #555;
+}
+
+/* About Me Section */
+.sub-section {
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sub-section .information {
+    max-width: 800px;
+    text-align: center;
+}
+
+.sub-section .headshot-container {
+    margin-top: 2rem;
+}
+
+.sub-section .headshot {
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+}
+
+/* Projects Section */
+.sub-section-alternative {
+    padding: 4rem 2rem;
+    background-color: #e8e8e8;
+}
+
+.project-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.project-card {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    width: 300px;
+    text-align: center;
+}
+
+.project-card img {
+    height: 150px;
+    object-fit: cover;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.project-link {
+    color: #007bff;
+}
+
+.project-link:hover {
+    text-decoration: underline;
+}
+
+/* Experience and Education Sections */
+.section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.entry {
+    margin-bottom: 2rem;
+}
+
+.entry-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.entry-company, .entry-university {
+    font-weight: 600;
+    color: #555;
+}
+
+.entry-date, .entry-graduation {
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
+/* Skills Section */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.skill-category {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    width: 250px;
+    text-align: center;
+}
+
+.category-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.category-list {
+    list-style: none;
+    padding: 0;
+}
+
+.skill-item {
+    margin-bottom: 0.5rem;
+}
+
+/* Footer Section */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+}
+
+footer h2 {
+    margin-bottom: 2rem;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.socials .social {
+    font-size: 2rem;
+    color: #fff;
+}
+
+footer a {
+    color: #007bff;
+    font-weight: 600;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #nav-list {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+    }
+
     .hamburger {
         display: block;
-        border: 0;
-        background-color: transparent;
-        color: white;
-        font-size: 30px;
-        margin: 20px;
-        align-self: flex-end;
     }
 
-    ul {
-        display: none;
-        background-color: #2b2c38;
-        margin: 0ppx;
+    .sub-section, .sub-section-alternative {
+        padding: 2rem 1rem;
     }
 
-    ul.show {
-        display: block;
+    .project-container {
+        flex-direction: column;
+        align-items: center;
     }
 
-    nav {
-        display: flex;
-        flex-direction: column-reverse;
-        background-color: #2b2c38;
-    }
-
-    .logo {
-        display: none;
+    .skills-container {
+        flex-direction: column;
+        align-items: center;
     }
 }
