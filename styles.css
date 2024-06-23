@@ -195,7 +195,10 @@ hr {
     font-size: 15px;
     font-weight: 300;
     margin-bottom: 5px;
-    overflow-wrap: break-word;
+    overflow: hidden;
+    width: 30px;
+    height: 90px;
+    display: block;
 }
 
 a {
