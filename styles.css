@@ -185,13 +185,10 @@ ul .project-goals {
     margin-top: 10px;
     margin-bottom: 0; /* Ensure no extra margin below the list */
     flex-grow: 1; /* Allow the list to expand to fill remaining space */
+    display: block;
 }
 
-.project-card .project-goals li {
-    margin-bottom: 5px;
-    font-size: 16px; /* Adjust as needed */
-    word-wrap: break-word; /* Ensure long words break to the next line */
-}
+
 
 
 
