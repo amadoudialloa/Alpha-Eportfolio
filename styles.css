@@ -181,7 +181,7 @@ ul .subtext {
     flex-wrap: wrap;
 }
 
-.project-goals li {
+.subtext li {
     margin-bottom: 5px;
     display: block;
     font-size: 16px; /* Adjusted font size for list items */
