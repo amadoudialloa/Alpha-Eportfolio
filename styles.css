@@ -171,13 +171,14 @@ hr {
     color: #ef744b;
 }
 
-.project-goals {
+.project-card .project-goals {
     list-style-type: disc;
     padding-left: 20px;
     margin-top: 10px;
+    margin-bottom: 0; /* Ensure no extra margin below the list */
 }
 
-.project-goals li {
+.project-card .project-goals li {
     margin-bottom: 5px;
 }
 
