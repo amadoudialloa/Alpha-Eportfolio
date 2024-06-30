@@ -195,11 +195,15 @@ hr {
     line-height: 1.5; /* Ensure enough space between lines */
 }
 
-
+.project-goals a:hover {
+    text-decoration: underline;
+    transform: scale(1.1); /* Scale up the link */
+}
 
 .project-goals a {
     text-decoration: none;
     color: #ef744b; /* Contrast color */
+    transition: transform 0.2s; /* Smooth transition */
 }
 
 a {
