@@ -197,7 +197,7 @@ hr {
 
 
 
-a {
+.project-goals a {
     text-decoration: none;
     color: #ef744b; /* Contrast color */
 }
