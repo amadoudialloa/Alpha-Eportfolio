@@ -191,6 +191,7 @@ hr {
 
 .project-card .project-goals li {
     margin-bottom: 5px;
+    color: #ef744b; /* Contrast color */
     line-height: 1.5; /* Ensure enough space between lines */
 }
 
@@ -198,6 +199,7 @@ hr {
 
 a {
     text-decoration: none;
+    color: #ef744b; /* Contrast color */
     color: white;
 }
 
