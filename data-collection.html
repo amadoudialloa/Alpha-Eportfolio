@@ -7,7 +7,7 @@
     <style>
         /* Ensure body takes full height and allows scrolling */
         body {
-            height: 100vh; /* Set body height to 100% of viewport height */
+            height: 100%;
             margin: 0;
             padding: 0;
             overflow: auto; /* Allow scrolling */
@@ -23,9 +23,11 @@
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.7); /* White with 80% opacity */
+            background-color: rgba(255, 255, 255, 0.7); /* White with 70% opacity */
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative; /* Ensure content is positioned relative to body */
+            z-index: 1; /* Ensure content is above background */
         }
 
         h1 {
@@ -48,6 +50,7 @@
             text-align: center;
             padding: 10px 0;
             background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+            z-index: 2; /* Ensure footer is above background */
         }
     </style>
 </head>
@@ -64,5 +67,4 @@
     </footer>
 </body>
 </html>
-
 
