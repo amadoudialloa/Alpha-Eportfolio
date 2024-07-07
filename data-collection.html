@@ -7,16 +7,15 @@
     <style>
         /* Ensure body takes full height and allows scrolling */
         body {
-            width: 90%;
-            height: 100%;
             margin: 0;
             padding: 0;
-            overflow: auto; /* Allow scrolling */
             font-family: 'Poppins', sans-serif; /* Use specified font */
             background-image: url('data-collection.jpeg'); /* Background image */
             background-size: cover;
             background-position: center;
-            box-sizing: border-box;
+            background-attachment: fixed; /* Fixed background so it scrolls with content */
+            height: 100vh; /* Set body height to full viewport height */
+            overflow: auto; /* Allow scrolling */
         }
 
         /* Styling for main content */
@@ -45,7 +44,7 @@
         }
 
         footer {
-            position: absolute;
+            position: fixed;
             bottom: 0;
             width: 100%;
             text-align: center;
@@ -68,4 +67,3 @@
     </footer>
 </body>
 </html>
-
