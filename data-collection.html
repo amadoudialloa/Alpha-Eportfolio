@@ -14,10 +14,26 @@
 
         /* Ensure body takes full height and allows scrolling */
         body {
-            background: url('data-collection.jpeg') no-repeat center center fixed;
+            background: url('data-collection.jpeg') no-repeat center center;
+            background-size: cover; /* Cover ensures the image covers the entire body */
+            height: 100vh; /* Set body height to full viewport height */
+            overflow: auto; /* Allow scrolling */
+        }
+
+        /* Additional styling for content (optional) */
+        .content {
+            padding: 20px;
+            color: white;
+            text-align: center;
         }
     </style>
 </head>
 <body>
+    <div class="content">
+        <!-- Your content here -->
+        <h1>Welcome to my website</h1>
+        <p>This is a scrollable background image example.</p>
+    </div>
 </body>
 </html>
+
