@@ -13,7 +13,6 @@
             background-image: url('data-collection.jpeg'); /* Background image */
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Fixed background so it scrolls with content */
             height: 100vh; /* Set body height to full viewport height */
             overflow: auto; /* Allow scrolling */
         }
@@ -26,21 +25,20 @@
             background-color: rgba(255, 255, 255, 0.7); /* White with 70% opacity */
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            position: relative; /* Ensure content is positioned relative to body */
-            z-index: 1; /* Ensure content is above background */
+            color: #333; /* Text color */
+            text-align: justify; /* Justify text */
         }
 
         h1 {
             font-size: 2em;
-            color: #333;
             text-align: center;
+            margin-bottom: 20px;
         }
 
         p {
             font-size: 1em;
-            color: #666;
             line-height: 1.5;
-            text-align: justify;
+            color: #666; /* Text color */
         }
 
         footer {
@@ -50,7 +48,6 @@
             text-align: center;
             padding: 10px 0;
             background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
-            z-index: 2; /* Ensure footer is above background */
         }
     </style>
 </head>
