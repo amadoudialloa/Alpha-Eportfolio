@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Collection</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Full Page Scrollable Background Image</title>
     <style>
         /* Ensure body takes full height and allows scrolling */
         html, body {
@@ -14,34 +13,22 @@
             overflow: auto; /* Allow scrolling */
         }
 
-        /* Semi-transparent overlay */
-        .overlay {
-            position: fixed; /* Fixed position to cover entire viewport */
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.5); /* White with 50% opacity */
-            z-index: 1;
-        }
-
         /* Content container with background image */
         .content-container {
             position: relative;
-            z-index: 2;
-            padding: 20px;
-            min-height: 100vh; /* Ensure the container takes full height */
+            width: 100%;
+            height: 100%;
             background: url('data-collection.jpeg') no-repeat center center;
             background-size: cover;
-            overflow-y: auto;
+            overflow-y: auto; /* Allow vertical scrolling */
         }
 
         /* Styling for main content */
         main {
             max-width: 800px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+            margin: 20px auto;
             padding: 20px;
+            background: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -59,20 +46,18 @@
     </style>
 </head>
 <body>
-    <div class="overlay"></div>
     <div class="content-container">
-        <header>
-            <h1>Data Collection</h1>
-        </header>
         <main>
+            <header>
+                <h1>Data Collection</h1>
+            </header>
             <p>Details about the Data Collection process...</p>
             <!-- Add more content here as needed -->
+            <footer>
+                <p>&copy; 2024 Your Business Name</p>
+            </footer>
         </main>
-        <footer>
-            <p>&copy; 2024 Your Business Name</p>
-        </footer>
     </div>
 </body>
 </html>
-
 
