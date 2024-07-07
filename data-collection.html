@@ -12,16 +12,17 @@
             box-sizing: border-box;
         }
 
-        /* Ensure body takes full height and allows scrolling */
+        /* Ensure body allows scrolling */
         body {
+            background: url('data-collection.jpeg');
             background-size: cover; /* Cover ensures the image covers the entire body */
             background-repeat: no-repeat;
             background-position: center center;
-            height: 100vh; /* Set body height to full viewport height */
-            overflow: auto; /* Allow scrolling */
-            background-attachment: scroll; /* or remove this line if not needed */
-            overflow-y: scroll; /* Allow vertical scrolling */
-            background: url('data-collection.jpeg');
+            height: auto; /* Allow body height to grow with content */
+            min-height: 100vh; /* Set minimum body height to full viewport height */
+            overflow-y: auto; /* Allow vertical scrolling */
+            margin: 0;
+            padding: 0;
         }
 
         /* Additional styling for content (optional) */
@@ -29,6 +30,7 @@
             padding: 20px;
             color: white;
             text-align: center;
+            height: 200vh; /* Make content height twice the viewport height to enable scrolling */
         }
     </style>
 </head>
