@@ -3,30 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Full Page Scrollable Background Image</title>
+    <title>Scrollable Background Image</title>
     <style>
-        /* Ensure body takes full height and allows scrolling */
-        body {
+        /* Reset default margin and padding */
+        * {
             margin: 0;
             padding: 0;
-            font-family: 'Poppins', sans-serif; /* Use specified font */
-            background-image: url('data-collection.jpeg'); /* Background image */
-            background-size: cover;
-            background-position: center;
-            height: 100vh; /* Set body height to full viewport height */
-            overflow: auto; /* Allow scrolling */
+            box-sizing: border-box;
         }
 
-        /* Styling for main content */
-        main {
+        /* Ensure body takes full height and allows scrolling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            height: 100vh; /* Full viewport height */
+            margin: 0;
+            padding: 0;
+            overflow: auto; /* Allow scrolling */
+            background: url('data-collection.jpeg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* Content wrapper for centering and styling */
+        .content {
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.7); /* White with 70% opacity */
+            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             color: #333; /* Text color */
-            text-align: justify; /* Justify text */
         }
 
         h1 {
@@ -38,13 +43,10 @@
         p {
             font-size: 1em;
             line-height: 1.5;
-            color: #666; /* Text color */
+            text-align: justify;
         }
 
         footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
             text-align: center;
             padding: 10px 0;
             background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
@@ -52,13 +54,13 @@
     </style>
 </head>
 <body>
-    <main>
+    <div class="content">
         <header>
             <h1>Data Collection</h1>
         </header>
         <p>Details about the Data Collection process...</p>
         <!-- Add more content here as needed -->
-    </main>
+    </div>
     <footer>
         <p>&copy; 2024 Your Business Name</p>
     </footer>
