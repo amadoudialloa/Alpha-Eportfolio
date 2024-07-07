@@ -6,17 +6,24 @@
     <title>Data Collection</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Ensure body takes full height and allows scrolling */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: auto; /* Allow scrolling */
+        }
+
         /* Inline CSS for background image */
         body {
             background: url('data-collection.jpeg') no-repeat center top;
             background-size: cover;
-            background-attachment: fixed;
             position: relative;
         }
 
         /* Semi-transparent overlay */
         .overlay {
-            position: absolute;
+            position: fixed; /* Fixed position to cover entire viewport */
             top: 0;
             left: 0;
             width: 100%;
@@ -71,4 +78,5 @@
     </div>
 </body>
 </html>
+
 
