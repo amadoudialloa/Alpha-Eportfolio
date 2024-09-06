@@ -36,7 +36,6 @@ nav {
 ul {
     display: flex;
     list-style-type: none;
-    flex: 1; /* Allow ul to take up available space */
     justify-content: space-around; /* Distribute items evenly */
     margin: 0; /* Remove default margin */
     padding: 0; /* Remove default padding */
@@ -45,6 +44,7 @@ ul {
 li {
     text-decoration: none;
     font-size: 14px; /* Move font size here if needed */
+    margin-left: 10px; /* Adds a small spacing between the links */
 }
 
 h1 {
