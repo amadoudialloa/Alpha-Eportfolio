@@ -7,6 +7,12 @@ section {
     background-color: white;
 }
 
+
+nav .logo {
+
+    margin-right: 30px
+}
+
 .logo {
         width: 80px; /* Adjust the width and height to create your desired circle size */
         height: 80px;
