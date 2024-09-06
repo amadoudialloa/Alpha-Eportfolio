@@ -35,9 +35,10 @@ nav {
 ul {
     display: flex;
     list-style-type: none;
-    width: 1000px;
-    justify-content: space-around;
-    font-size: 24px;
+    flex: 1; /* Allow ul to take up available space */
+    justify-content: space-around; /* Distribute items evenly */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
 }
 
 li {
