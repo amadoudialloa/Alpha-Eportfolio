@@ -36,6 +36,7 @@ footer {
 nav {
     display: flex;
     justify-content: space-between; /* Ensure space between nav items and container edges */
+    align-items: center; /* Vertically center items */
     padding: 0 20px; /* Optional: Add padding to the nav container for spacing */
 }
 
