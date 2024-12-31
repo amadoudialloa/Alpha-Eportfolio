@@ -3,44 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freelance Services - Data Science & AI Consulting</title>
+    <title>Freelance Data Science & AI Consulting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="service-container">
-        <div class="service-card">
-            <h2>Data Science & AI Consulting</h2>
-            <p>I provide freelance AI-driven data science consulting services that help businesses visualize their data, uncover key insights, and make informed decisions. By analyzing trends and patterns, I offer tailored recommendations to optimize operations and drive growth.</p>
-            <button onclick="openConsultationForm()">Consult with Me</button>
-            <div id="rating-section">
-                <h3>Client Ratings</h3>
-                <div id="rating-list"></div>
-                <button onclick="openRatingForm()">Leave a Rating</button>
+    <div class="hero-section">
+        <div class="overlay">
+            <h1>Data Science & AI Consulting</h1>
+            <p>Transforming Data into Actionable Insights for Your Business Growth</p>
+            <button onclick="openConsultationForm()">Book a Consultation</button>
+        </div>
+    </div>
+
+    <div class="about-section">
+        <h2>What I Do</h2>
+        <p>I provide AI-driven data science consulting services that help businesses visualize their data, uncover insights, and make informed decisions. From trend analysis to predictive modeling, I deliver custom solutions to optimize your operations and drive growth.</p>
+    </div>
+
+    <div class="success-stories">
+        <h2>Client Success Stories</h2>
+        <div class="story-container">
+            <div class="story">
+                <img src="project1.jpg" alt="Project 1">
+                <h3>Boosting E-commerce Sales</h3>
+                <p>Implemented predictive analytics to increase sales by 25%.</p>
+            </div>
+            <div class="story">
+                <img src="project2.jpg" alt="Project 2">
+                <h3>Operational Optimization</h3>
+                <p>Streamlined supply chain logistics, reducing costs by 18%.</p>
             </div>
         </div>
     </div>
 
-    <!-- Consultation Form Modal -->
+    <div class="ratings-section">
+        <h2>Client Ratings and Reviews</h2>
+        <div id="rating-list"></div>
+        <button onclick="openRatingForm()">Leave a Rating</button>
+    </div>
+
     <div id="consultationModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeConsultationForm()">&times;</span>
-            <h2>Consultation Request</h2>
+            <h2>Book a Consultation</h2>
             <form id="consultationForm">
                 <label for="name">Name:</label>
                 <input type="text" id="name" required>
-                
                 <label for="email">Email:</label>
                 <input type="email" id="email" required>
-                
                 <label for="message">Message:</label>
                 <textarea id="message" required></textarea>
-                
                 <button type="submit">Submit</button>
             </form>
         </div>
     </div>
 
-    <!-- Rating Form Modal -->
     <div id="ratingModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeRatingForm()">&times;</span>
@@ -48,17 +66,14 @@
             <form id="ratingForm">
                 <label for="rating">Rating (1 to 5):</label>
                 <input type="number" id="rating" min="1" max="5" required>
-                
                 <label for="review">Review:</label>
                 <textarea id="review" required></textarea>
-                
                 <button type="submit">Submit</button>
             </form>
         </div>
     </div>
 
     <script>
-        // Consultation Modal Controls
         function openConsultationForm() {
             document.getElementById('consultationModal').style.display = 'block';
         }
@@ -66,7 +81,6 @@
             document.getElementById('consultationModal').style.display = 'none';
         }
 
-        // Rating Modal Controls
         function openRatingForm() {
             document.getElementById('ratingModal').style.display = 'block';
         }
@@ -74,14 +88,12 @@
             document.getElementById('ratingModal').style.display = 'none';
         }
 
-        // Handle Consultation Form Submission
         document.getElementById('consultationForm').onsubmit = function(e) {
             e.preventDefault();
-            alert('Your consultation request has been sent. I will get back to you soon.');
+            alert('Your consultation request has been sent.');
             closeConsultationForm();
         };
 
-        // Handle Rating Form Submission
         document.getElementById('ratingForm').onsubmit = function(e) {
             e.preventDefault();
             const rating = document.getElementById('rating').value;
@@ -91,43 +103,44 @@
             const entry = document.createElement('div');
             entry.classList.add('rating-entry');
             entry.innerHTML = `<strong>${rating} Stars</strong><p>${review}</p>`;
-            
             ratingList.appendChild(entry);
             closeRatingForm();
-            alert('Thank you for your feedback!');
         };
     </script>
 
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .hero-section {
+            background: url('hero-bg.jpg') no-repeat center center/cover;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .service-container {
-            max-width: 800px;
-        }
-        .service-card {
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: white;
             text-align: center;
         }
-        button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            background-color: #007BFF;
-            color: white;
-            cursor: pointer;
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 10px;
         }
-        button:hover {
-            background-color: #0056b3;
+        .about-section, .success-stories, .ratings-section {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .story-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .story img {
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
         }
         .modal {
             display: none;
@@ -137,35 +150,7 @@
             top: 0;
             width: 100%;
             height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.4);
-        }
-        .modal-content {
-            background-color: white;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 500px;
-            border-radius: 10px;
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .rating-entry {
-            border-top: 1px solid #ddd;
-            margin-top: 10px;
-            padding-top: 10px;
-            text-align: left;
+            background-color: rgba(0,0,0,0.5);
         }
     </style>
 </body>
