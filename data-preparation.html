@@ -3,129 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scrollable Background Image</title>
-    <style>
-        /* Reset default margin and padding */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Ensure body allows scrolling */
-        body {
-            position: relative;
-            height: auto; /* Allow body height to grow with content */
-            min-height: 100vh; /* Set minimum body height to full viewport height */
-            overflow-y: auto; /* Allow vertical scrolling */
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Semi-transparent background image */
-        .background-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data-preparation.jpeg') center center/cover no-repeat;
-            opacity: 0.07; /* Adjust opacity to make the background transparent */
-            z-index: -1;
-            transition: opacity 0.3s ease; /* Add transition for smooth opacity change */
-        }
-
-        /* Additional styling for content */
-        .content {
-            padding: 20px;
-            color: white;
-            text-align: center;
-            height: 200vh; /* Make content height twice the viewport height to enable scrolling */
-            position: relative; /* Ensure content is above the background */
-            z-index: 1; /* Ensure content is above the background */
-        }
-
-        /* Media query for smaller screens (up to typical iPhone width) */
-        @media (max-width: 768px) {
-            .background-image {
-                background-size: cover; /* Adjust background size for smaller screens */
-                opacity: 0.06; /* Adjust opacity for smaller screens if needed */
-                width: 100%; /* Adjust width for smaller screens */
-                background-position: center center; /* Center the background image */
-                padding: 1em;
-            }
-        }
-
-         /* Data Exploration Section */
-        .data-exploration {
-            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
-            padding: 2em;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            margin-bottom: 2em;
-        }
-
-        .data-exploration h2 {
-            text-align: center;
-            margin-bottom: 1em;
-            color: #007bff;
-        }
-
-        .data-exploration .service {
-            margin-bottom: 1em;
-        }
-
-        .data-exploration .service h3 {
-            margin-bottom: 0.5em;
-            color: #fff;
-        }
-
-        .data-exploration .service p {
-            color: #ccc;
-        }
-
-        /* Media query for smaller screens (up to typical iPhone width) */
-        @media (max-width: 768px) {
-            .background-image {
-                background-size: cover; /* Adjust background size for smaller screens */
-                opacity: 0.07; /* Adjust opacity for smaller screens if needed */
-                width: 100%; /* Adjust width for smaller screens */
-                background-position: center center; /* Center the background image */
-            }
-
-            .content {
-                padding: 10px;
-            }
-
-            .data-exploration {
-                padding: 1em;
-            }
-        }
-             
-    </style>
+    <title>Research - Data Science & AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="background-image"></div>
-    <div class="content">
-         <section class="data-exploration">
-            <h2>Data Exploration Services</h2>
-            <div class="service">
-                <h3>Data Cleaning</h3>
-                <p>Ensure your data is accurate and ready for analysis by removing inconsistencies, correcting errors, and filling in missing values.</p>
-            </div>
-            <div class="service">
-                <h3>Data Visualization</h3>
-                <p>Transform your data into intuitive and interactive visual representations to uncover insights and make data-driven decisions.</p>
-            </div>
-            <div class="service">
-                <h3>Exploratory Data Analysis</h3>
-                <p>Analyze your data using statistical methods to discover patterns, relationships, and trends.</p>
-            </div>
-            <div class="service">
-                <h3>Feature Engineering</h3>
-                <p>Create new features from existing data to improve the performance of machine learning models.</p>
-            </div>
-        </section>
+    <div class="hero-section research">
+        <div class="overlay">
+            <h1>Research & Data Analysis</h1>
+            <p>In-Depth Insights to Drive Innovation and Strategic Decisions</p>
+            <button onclick="openConsultationForm()">Collaborate on Research</button>
+        </div>
     </div>
+
+    <div class="about-section">
+        <h2>Research Expertise</h2>
+        <p>I conduct rigorous research to uncover trends and insights that empower businesses to make data-driven decisions. Combining statistical analysis, machine learning, and domain knowledge, I provide actionable solutions to complex problems.</p>
+    </div>
+
+    <div class="focus-areas-section">
+        <h2>Research Focus Areas</h2>
+        <div class="focus-container">
+            <div class="focus">
+                <img src="predictive.jpg" alt="Predictive Analysis">
+                <h3>Predictive Analysis</h3>
+                <p>Forecast future outcomes through data modeling and advanced statistical techniques.</p>
+            </div>
+            <div class="focus">
+                <img src="nlp.jpg" alt="Natural Language Processing">
+                <h3>Natural Language Processing</h3>
+                <p>Extract meaningful insights from unstructured text data to enhance decision-making.</p>
+            </div>
+            <div class="focus">
+                <img src="visualization.jpg" alt="Data Visualization">
+                <h3>Data Visualization</h3>
+                <p>Translate complex datasets into intuitive, interactive visual representations.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="publications-section">
+        <h2>Recent Publications</h2>
+        <div class="publication-container">
+            <div class="publication">
+                <h3>Enhancing Market Predictions with AI</h3>
+                <p>Published in Data Science Journal, this paper explores the use of machine learning in market forecasting.</p>
+                <a href="#">Read More</a>
+            </div>
+            <div class="publication">
+                <h3>Sentiment Analysis in E-commerce</h3>
+                <p>A study on how sentiment analysis drives customer engagement and improves sales strategies.</p>
+                <a href="#">Read More</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="ratings-section">
+        <h2>Client Feedback</h2>
+        <div id="rating-list"></div>
+        <button onclick="openRatingForm()">Leave Feedback</button>
+    </div>
+
+    <div id="consultationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeConsultationForm()">&times;</span>
+            <h2>Research Collaboration Inquiry</h2>
+            <form id="consultationForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <label for="message">Research Details:</label>
+                <textarea id="message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="ratingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRatingForm()">&times;</span>
+            <h2>Leave a Review</h2>
+            <form id="ratingForm">
+                <label for="rating">Rating (1 to 5):</label>
+                <input type="number" id="rating" min="1" max="5" required>
+                <label for="review">Review:</label>
+                <textarea id="review" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openConsultationForm() {
+            document.getElementById('consultationModal').style.display = 'block';
+        }
+        function closeConsultationForm() {
+            document.getElementById('consultationModal').style.display = 'none';
+        }
+
+        function openRatingForm() {
+            document.getElementById('ratingModal').style.display = 'block';
+        }
+        function closeRatingForm() {
+            document.getElementById('ratingModal').style.display = 'none';
+        }
+
+        document.getElementById('consultationForm').onsubmit = function(e) {
+            e.preventDefault();
+            alert('Your research collaboration inquiry has been received.');
+            closeConsultationForm();
+        };
+
+        document.getElementById('ratingForm').onsubmit = function(e) {
+            e.preventDefault();
+            const rating = document.getElementById('rating').value;
+            const review = document.getElementById('review').value;
+            const ratingList = document.getElementById('rating-list');
+            
+            const entry = document.createElement('div');
+            entry.classList.add('rating-entry');
+            entry.innerHTML = `<strong>${rating} Stars</strong><p>${review}</p>`;
+            ratingList.appendChild(entry);
+            closeRatingForm();
+        };
+    </script>
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .hero-section.research {
+            background: url('research-bg.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 10px;
+        }
+        .focus-container, .publication-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        .focus img, .publication img {
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
+        }
+    </style>
 </body>
 </html>
+
