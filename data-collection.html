@@ -3,131 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scrollable Background Image</title>
-    <style>
-        /* Reset default margin and padding */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Ensure body allows scrolling */
-        body {
-            position: relative;
-            height: auto; /* Allow body height to grow with content */
-            min-height: 100vh; /* Set minimum body height to full viewport height */
-            overflow-y: auto; /* Allow vertical scrolling */
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Semi-transparent background image */
-        .background-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data-collection.jpeg') center center/cover no-repeat;
-            opacity: 0.07; /* Adjust opacity to make the background transparent */
-            z-index: -1;
-            transition: opacity 0.3s ease; /* Add transition for smooth opacity change */
-        }
-
-        /* Additional styling for content */
-        .content {
-            padding: 20px;
-            color: white;
-            text-align: center;
-            height: 200vh; /* Make content height twice the viewport height to enable scrolling */
-            position: relative; /* Ensure content is above the background */
-            z-index: 1; /* Ensure content is above the background */
-        }
-
-        /* Media query for smaller screens (up to typical iPhone width) */
-        @media (max-width: 768px) {
-            .background-image {
-                background-size: cover; /* Adjust background size for smaller screens */
-                opacity: 0.06; /* Adjust opacity for smaller screens if needed */
-                width: 100%; /* Adjust width for smaller screens */
-                background-position: center center; /* Center the background image */
-                padding: 1em;
-            }
-        }
-
-         /* Data Exploration Section */
-        .data-exploration {
-            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
-            padding: 2em;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            margin-bottom: 2em;
-        }
-
-        .data-exploration h2 {
-            text-align: center;
-            margin-bottom: 1em;
-            color: #007bff;
-        }
-
-        .data-exploration .service {
-            margin-bottom: 1em;
-        }
-
-        .data-exploration .service h3 {
-            margin-bottom: 0.5em;
-            color: #fff;
-        }
-
-        .data-exploration .service p {
-            color: #ccc;
-        }
-
-                /* Contact Button */
-        .contact-button {
-            display: block;
-            width: 200px;
-            padding: 10px 20px;
-            margin: 20px auto;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            text-align: center;
-            transition: background-color 0.3s;
-        }
-
-        .contact-button:hover {
-            background-color: #0056b3;
-        }
-
-        /* Media query for smaller screens (up to typical iPhone width) */
-        @media (max-width: 768px) {
-            .background-image {
-                background-size: cover; /* Adjust background size for smaller screens */
-                opacity: 0.07; /* Adjust opacity for smaller screens if needed */
-                width: 100%; /* Adjust width for smaller screens */
-                background-position: center center; /* Center the background image */
-            }
-
-            .content {
-                padding: 10px;
-            }
-
-            .data-exploration {
-                padding: 1em;
-            }
-        }
-             
-    </style>
+    <title>Freelance Services - Data Science & AI Consulting</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="background-image"></div>
-    <div class="content">
-         <section class="data-exploration">
-            <h1>Loading...</h1>
-        </section>
+    <div class="service-container">
+        <div class="service-card">
+            <h2>Data Science & AI Consulting</h2>
+            <p>I provide freelance AI-driven data science consulting services that help businesses visualize their data, uncover key insights, and make informed decisions. By analyzing trends and patterns, I offer tailored recommendations to optimize operations and drive growth.</p>
+            <button onclick="openConsultationForm()">Consult with Me</button>
+            <div id="rating-section">
+                <h3>Client Ratings</h3>
+                <div id="rating-list"></div>
+                <button onclick="openRatingForm()">Leave a Rating</button>
+            </div>
+        </div>
     </div>
+
+    <!-- Consultation Form Modal -->
+    <div id="consultationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeConsultationForm()">&times;</span>
+            <h2>Consultation Request</h2>
+            <form id="consultationForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" required></textarea>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Rating Form Modal -->
+    <div id="ratingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRatingForm()">&times;</span>
+            <h2>Leave a Rating</h2>
+            <form id="ratingForm">
+                <label for="rating">Rating (1 to 5):</label>
+                <input type="number" id="rating" min="1" max="5" required>
+                
+                <label for="review">Review:</label>
+                <textarea id="review" required></textarea>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Consultation Modal Controls
+        function openConsultationForm() {
+            document.getElementById('consultationModal').style.display = 'block';
+        }
+        function closeConsultationForm() {
+            document.getElementById('consultationModal').style.display = 'none';
+        }
+
+        // Rating Modal Controls
+        function openRatingForm() {
+            document.getElementById('ratingModal').style.display = 'block';
+        }
+        function closeRatingForm() {
+            document.getElementById('ratingModal').style.display = 'none';
+        }
+
+        // Handle Consultation Form Submission
+        document.getElementById('consultationForm').onsubmit = function(e) {
+            e.preventDefault();
+            alert('Your consultation request has been sent. I will get back to you soon.');
+            closeConsultationForm();
+        };
+
+        // Handle Rating Form Submission
+        document.getElementById('ratingForm').onsubmit = function(e) {
+            e.preventDefault();
+            const rating = document.getElementById('rating').value;
+            const review = document.getElementById('review').value;
+            const ratingList = document.getElementById('rating-list');
+            
+            const entry = document.createElement('div');
+            entry.classList.add('rating-entry');
+            entry.innerHTML = `<strong>${rating} Stars</strong><p>${review}</p>`;
+            
+            ratingList.appendChild(entry);
+            closeRatingForm();
+            alert('Thank you for your feedback!');
+        };
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .service-container {
+            max-width: 800px;
+        }
+        .service-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .rating-entry {
+            border-top: 1px solid #ddd;
+            margin-top: 10px;
+            padding-top: 10px;
+            text-align: left;
+        }
+    </style>
 </body>
 </html>
