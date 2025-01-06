@@ -3,155 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freelance Data Science & AI Consulting</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>Consulting Services | AI & Data Science</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="hero-section">
-        <div class="overlay">
-            <h1>Data Science & AI Consulting</h1>
-            <p>Transforming Data into Actionable Insights for Your Business Growth</p>
-            <button onclick="openConsultationForm()">Book a Consultation</button>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Strategic AI Consulting to Power Your Growth</h1>
+            <p>Unlock the potential of your data and implement AI solutions with confidence.</p>
+            <button class="cta-btn" onclick="scrollToSection('services')">Explore Services</button>
         </div>
-    </div>
+    </section>
 
-    <div class="about-section">
-        <h2>What I Do</h2>
-        <p>I provide AI-driven data science consulting services that help businesses visualize their data, uncover insights, and make informed decisions. From trend analysis to predictive modeling, I deliver custom solutions to optimize your operations and drive growth.</p>
-    </div>
-
-    <div class="success-stories">
-        <h2>Client Success Stories</h2>
-        <div class="story-container">
-            <div class="story">
-                <img src="project1.jpg" alt="Project 1">
-                <h3>Boosting E-commerce Sales</h3>
-                <p>Implemented predictive analytics to increase sales by 25%.</p>
+    <!-- Service Offerings -->
+    <section id="services" class="services">
+        <h2>Our Consulting Services</h2>
+        <div class="service-cards">
+            <div class="card" onclick="toggleDetails('strategy')">
+                <h3>AI & ML Strategy Development</h3>
+                <p>Tailored AI adoption plans for businesses.</p>
+                <div id="strategy" class="details">
+                    <p>We help businesses create a roadmap for AI integration to maximize ROI and drive innovation. Example: Develop AI solutions for logistics optimization.</p>
+                </div>
             </div>
-            <div class="story">
-                <img src="project2.jpg" alt="Project 2">
-                <h3>Operational Optimization</h3>
-                <p>Streamlined supply chain logistics, reducing costs by 18%.</p>
+            <div class="card" onclick="toggleDetails('data-engineering')">
+                <h3>Data Architecture & Engineering</h3>
+                <p>Scalable data pipelines and infrastructure.</p>
+                <div id="data-engineering" class="details">
+                    <p>Design reliable data architecture to handle large datasets for analytics. Example: Develop cloud data lakes for health analytics.</p>
+                </div>
+            </div>
+            <div class="card" onclick="toggleDetails('cloud-migration')">
+                <h3>Cloud Migration & Infrastructure</h3>
+                <p>Seamless cloud transitions and infrastructure scaling.</p>
+                <div id="cloud-migration" class="details">
+                    <p>Ensure secure, cost-effective cloud migration strategies. Example: Migrate financial platforms to AWS or Azure.</p>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="ratings-section">
-        <h2>Client Ratings and Reviews</h2>
-        <div id="rating-list"></div>
-        <button onclick="openRatingForm()">Leave a Rating</button>
-    </div>
-
-    <div id="consultationModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeConsultationForm()">&times;</span>
-            <h2>Book a Consultation</h2>
-            <form id="consultationForm">
-                <label for="name">Name:</label>
-                <input type="text" id="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" required>
-                <label for="message">Message:</label>
-                <textarea id="message" required></textarea>
-                <button type="submit">Submit</button>
-            </form>
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial-slider">
+            <div class="testimonial">
+                <p>"AI consulting transformed our logistics. The insights provided were game-changing!"</p>
+                <h4>- John Smith, Logistics Corp</h4>
+            </div>
+            <div class="testimonial">
+                <p>"Data pipeline optimization saved us hours of manual work and improved accuracy."</p>
+                <h4>- Sarah Lee, Health Analytics</h4>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <div id="ratingModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeRatingForm()">&times;</span>
-            <h2>Leave a Rating</h2>
-            <form id="ratingForm">
-                <label for="rating">Rating (1 to 5):</label>
-                <input type="number" id="rating" min="1" max="5" required>
-                <label for="review">Review:</label>
-                <textarea id="review" required></textarea>
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-    </div>
+    <!-- Call to Action -->
+    <section class="cta">
+        <h2>Ready to Transform Your Business?</h2>
+        <button class="cta-btn" onclick="location.href='contact.html'">Schedule a Consultation</button>
+    </section>
 
     <script>
-        function openConsultationForm() {
-            document.getElementById('consultationModal').style.display = 'block';
+        // Scroll to specific section
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.scrollIntoView({ behavior: 'smooth' });
         }
-        function closeConsultationForm() {
-            document.getElementById('consultationModal').style.display = 'none';
+        
+        // Toggle service details
+        function toggleDetails(id) {
+            const details = document.getElementById(id);
+            details.classList.toggle('active');
         }
-
-        function openRatingForm() {
-            document.getElementById('ratingModal').style.display = 'block';
-        }
-        function closeRatingForm() {
-            document.getElementById('ratingModal').style.display = 'none';
-        }
-
-        document.getElementById('consultationForm').onsubmit = function(e) {
-            e.preventDefault();
-            alert('Your consultation request has been sent.');
-            closeConsultationForm();
-        };
-
-        document.getElementById('ratingForm').onsubmit = function(e) {
-            e.preventDefault();
-            const rating = document.getElementById('rating').value;
-            const review = document.getElementById('review').value;
-            const ratingList = document.getElementById('rating-list');
-            
-            const entry = document.createElement('div');
-            entry.classList.add('rating-entry');
-            entry.innerHTML = `<strong>${rating} Stars</strong><p>${review}</p>`;
-            ratingList.appendChild(entry);
-            closeRatingForm();
-        };
     </script>
-
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .hero-section {
-            background: url('hero-bg.jpg') no-repeat center center/cover;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-        }
-        .overlay {
-            background-color: rgba(20, 10, 0, 0.6);
-            padding: 40px;
-            border-radius: 10px;
-        }
-        .about-section, .success-stories, .ratings-section {
-            text-align: center;
-            padding: 50px 20px;
-        }
-        .story-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        .story img {
-            width: 300px;
-            height: 200px;
-            border-radius: 10px;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-        }
-    </style>
 </body>
 </html>
