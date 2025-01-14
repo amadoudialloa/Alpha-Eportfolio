@@ -3,160 +3,456 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulting Services | AI & Data Science</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Book a Data & AI Consultation</title>
     <style>
-        body, html {
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
-        }
-        .hero {
-            background: linear-gradient(135deg, #00ff1557, #0022ffaf);
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-        }
-        .cta-btn {
-            background-color: #ff7e67;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            margin-top: 20px;
-        }
-        .cta-btn:hover {
-            background-color: #ff5f50;
-        }
-        .services {
-            padding: 60px 20px;
-            text-align: center;
-        }
-        .service-cards {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .card {
-            background: #f4f4f4;
-            padding: 30px;
-            width: 300px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.3s ease-in-out;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        .details {
-            display: none;
-            margin-top: 20px;
-        }
-        .details.active {
-            display: block;
-        }
-        .testimonials {
-            background: linear-gradient(135deg, #00ff1557, #0022ffaf);
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-        }
-        .testimonial {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .cta {
-            text-align: center;
-            padding: 80px 20px;
-            background: white;
-            color: rgb(0, 0, 0);
+            line-height: 1.6;
         }
 
-        footer {
-        background-color: #1c1f26;
-        color: white;
-        padding: 1rem;
-        text-align: center;
+        .hero {
+    position: relative;
+    background-color: #1e2a38;
+    color: white;
+    padding: 50px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.hero-image {
+    position: relative;
+    max-width: 50%;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero-image .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0); /* Dark overlay */
+    z-index: 1;
+    pointer-events: none; /* Ensures the overlay doesn't interfere with image clicks */
+}
+
+.hero-content {
+    max-width: 50%;
+    z-index: 2; /* Ensures text is above the overlay */
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    z-index: 2;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.cta-btn {
+    background: #00bfa6;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.cta-btn:hover {
+    background: #00a58c;
+}
+
+
+        .why-choose-me {
+            padding: 50px 10%;
+            text-align: center;
         }
+
+        .why-choose-me h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .why-choose-me ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .why-choose-me li {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        .services {
+            padding: 50px 10%;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .services .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .service-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+
+        .industries {
+    padding: 60px 10%;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.industries h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.industries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.industry-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.industry-card img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.industry-card:hover img {
+    transform: scale(1.1); /* Zoom effect on hover */
+}
+
+.industry-title {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    color: #333;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 2;
+    text-align: center;
+}
+
+.industry-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.industry-card:hover .industry-overlay {
+    opacity: 1; /* Show overlay on hover */
+}
+
+.industry-overlay p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+
+
+
+/* General Section Styling */
+.consultation-section {
+    padding: 60px 10%;
+    background-color: #f9f9f9;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+.consultation-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.consultation-header p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Form Layout */
+#consultation-form {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px; /* Add spacing between rows */
+}
+
+.form-group {
+    flex: 1 1 calc(50% - 20px);
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: none;
+}
+
+.form-submit {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.submit-btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 12px 40px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* Footer */
+.blog-footer {
+    background-color: #1e2a38;
+    color: #f8f9fa; /* Light text for contrast */
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #444;
+}
+
+.blog-footer a {
+    color: #00bfa6; /* Greenish link for modern contrast */
+}
+
 
     </style>
 </head>
+<link rel="stylesheet" href="styles.css">
 <body>
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Strategic AI Consulting to Power Your Growth</h1>
-            <p>Unlock the potential of your data and implement AI solutions with confidence.</p>
-            <button class="cta-btn" onclick="scrollToSection('services')">Explore Services</button>
+            <h1>Transform Your Business with Data & AI Consulting</h1>
+            <p>Expert guidance to unlock the full potential of your data.</p>
+            <button class="cta-btn" onclick="scrollToBooking()">Book Your Free Consultation</button>
+        </div>
+        <div class="hero-image">
+            <div class="overlay"></div>
+            <img src="/Consulthero.gif" alt="Hero Illustration">
         </div>
     </section>
+    
 
-    <!-- Service Offerings -->
-    <section id="services" class="services">
-        <h2>Our Consulting Services</h2>
-        <div class="service-cards">
-            <div class="card" onclick="toggleDetails('strategy')">
-                <h3>AI & ML Strategy Development</h3>
-                <p>Tailored AI adoption plans for businesses.</p>
-                <div id="strategy" class="details">
-                    <p>We help businesses create a roadmap for AI integration to maximize ROI and drive innovation. Example: Develop AI solutions for logistics optimization.</p>
+    <section class="why-choose-me">
+        <h2>Why Choose Me?</h2>
+        <ul>
+            <p style="font-size: 20px;">As an accredited Data Scientist from the University of Iowa, I bring years of expertise in delivering impactful AI and data solutions. With a proven track record of achieving results like a 30% reduction in operational costs and 95% fraud detection accuracy, I specialize in crafting tailored strategies that drive measurable success. Trusted by businesses across industries such as Finance, Healthcare, and Retail, I am dedicated to unlocking the potential of your data to achieve your goals.</p>
+        </ul>
+    </section>
+
+
+    <section class="industries">
+        <h2>Industries I Help With</h2>
+        <div class="industries-grid">
+            <div class="industry-card">
+                <h3 class="industry-title">Finance</h3>
+                <img style="height: 100%;" src="/financeconsult.gif" alt="Finance Industry">
+                <div class="industry-overlay">
+                    <p>Streamline operations with AI-driven insights and automation.</p>
                 </div>
             </div>
-            <div class="card" onclick="toggleDetails('data-engineering')">
-                <h3>Data Architecture & Engineering</h3>
-                <p>Scalable data pipelines and infrastructure.</p>
-                <div id="data-engineering" class="details">
-                    <p>Design reliable data architecture to handle large datasets for analytics. Example: Develop cloud data lakes for health analytics.</p>
+            <div class="industry-card">
+                <h3 class="industry-title">Healthcare</h3>
+                <img src="/healthconsult.gif" alt="Healthcare Industry">
+                <div class="industry-overlay">
+                    <p>Optimize patient care with data integration and predictive analytics.</p>
                 </div>
             </div>
-            <div class="card" onclick="toggleDetails('cloud-migration')">
-                <h3>Cloud Migration & Infrastructure</h3>
-                <p>Seamless cloud transitions and infrastructure scaling.</p>
-                <div id="cloud-migration" class="details">
-                    <p>Ensure secure, cost-effective cloud migration strategies. Example: Migrate financial platforms to AWS or Azure.</p>
+            <div class="industry-card">
+                <h3 class="industry-title">Retail</h3>
+                <img src="/Retailconsult.gif" alt="Retail Industry">
+                <div class="industry-overlay">
+                    <p>Enhance customer experiences and inventory management using ML.</p>
+                </div>
+            </div>
+            <div class="industry-card">
+                <h3 class="industry-title">Telecommunications</h3>
+                <img src="/Telecommunicationconsult.gif" alt="Telecommunications Industry">
+                <div class="industry-overlay">
+                    <p>Improve network performance and customer satisfaction with AI tools.</p>
                 </div>
             </div>
         </div>
     </section>
+    
+    
+    
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <h2>What Our Clients Say</h2>
-        <div class="testimonial-slider">
-            <div class="testimonial">
-                <p>"AI consulting transformed our logistics. The insights provided were game-changing!"</p>
-                <h4>- John Smith, Logistics Corp</h4>
+    <section id="book-consultation" class="consultation-section">
+        <h2>Book Your Consultation</h2>
+        <p>Fill out the form below to schedule your consultation, and we’ll get back to you shortly!</p>
+        <form id="consultation-form" onsubmit="event.preventDefault(); sendMail();">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
             </div>
-            <div class="testimonial">
-                <p>"Data pipeline optimization saved us hours of manual work and improved accuracy."</p>
-                <h4>- Sarah Lee, Health Analytics</h4>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </div>
+            <div class="form-group">
+                <label for="service">Service Needed</label>
+                <select id="service" name="service" required>
+                    <option value="">-- Select a Service --</option>
+                    <option value="ai-strategy">AI Strategy Development</option>
+                    <option value="data-architecture">Data Architecture Optimization</option>
+                    <option value="ml-models">Machine Learning Models</option>
+                    <option value="cloud-migration">Cloud Data Migration</option>
+                    <option value="custom-solution">Custom Solution</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">Additional Information</label>
+                <textarea id="message" name="message" rows="4" placeholder="Tell us more about your project"></textarea>
+            </div>
+            <div class="form-submit">
+                <button type="submit" class="submit-btn">Submit Request</button>
+            </div>
+        </form>
+    </section>
+    
+    
+    
+    
+
+    <footer class="blog-footer">
+        <div class="footer-content">
+            <p>© 2025 Research Insights. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="https://github.com/amadoudialloa" class="social" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="40" height="40" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/alpha-a-diallo23" class="social" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="40" height="40" viewBox="0 0 24 24">
+                        <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
+                    </svg>
+                </a>
             </div>
         </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="cta">
-        <h2>Ready to Transform Your Business?</h2>
-        <button class="cta-btn" onclick="location.href='contact.html'">Schedule a Consultation</button>
-    </section>
-    <footer>
-        <p>&copy; 2024 Data Consulting Services. All Rights Reserved.</p>
     </footer>
-    <script>
-        // Scroll to specific section
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            section.scrollIntoView({ behavior: 'smooth' });
-        }
-        
-        // Toggle service details
-        function toggleDetails(id) {
-            const details = document.getElementById(id);
-            details.classList.toggle('active');
-        }
-    </script>
+    
 </body>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "uk0oojPJxLHfRUMV3",
+      });
+   })();
+</script>
+<script>
+    function sendMail() {
+    let params = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        service: document.getElementById("service").value,
+        message: document.getElementById("message").value,
+    };
+
+    emailjs.send("service_c1vctti", "template_56pigo8", params, "uk0oojPJxLHfRUMV3")
+        .then(function(response) {
+            alert("Your consultation request has been sent successfully! We will get back to you soon.");
+            document.getElementById("consultation-form").reset(); // Clear the form after submission
+        })
+        .catch(function(error) {
+            alert("There was an error sending your request. Please try again later.");
+            console.error("EmailJS Error: ", error);
+        });
+}
+
+</script>
+
+
+
 </html>
+
