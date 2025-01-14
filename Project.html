@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulting Services | AI & Data Science</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://leaflet.github.io/Leaflet.heat/dist/leaflet-heat.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        .hero {
+            background-color: #d9e2e8;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px 10%;
+            border-bottom-right-radius: 2rem;
+            border-bottom-left-radius: 2rem;
+        }
+        .hero-content {
+            max-width: 50%;
+        }
+
+                .highlight-boost {
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1.2em; /* Slightly larger font size */
+            background: linear-gradient(90deg, rgba(255, 247, 0, 0.623) 0%, rgba(10, 211, 80, 0.47) 100%);
+            color: #0d0b9a;
+            display: inline-block;
+            display: inline-block;
+            animation: bounce 1.5s infinite; /* Optional animation */
+        }
+
+        /* Optional bounce animation */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+                    /* Popup Overlay */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Popup Content */
+        .popup-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            width: 400px;
+            text-align: center;
+            position: relative;
+        }
+
+        .popup-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .popup-content p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Close Button */
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+        }
+
+        /* Form Styling */
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .form-submit-btn {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-submit-btn:hover {
+            background-color: #0056b3;
+        }
+
+
+        /* Close Button */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #555;
+        }
+
+        .close-btn:hover {
+            color: black;
+        }
+
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #4a4a4a;
+            margin-bottom: 20px;
+        }
+        .cta-btn {
+            background-color: #333;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+        }
+        .cta-btn:hover {
+            background-color: #555;
+        }
+        .hero-image {
+            max-width: 40%;
+        }
+        .hero-image img {
+            width: 90%;
+            height: 90%;
+        }
+        .accordion-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 10%;
+            background-color: #f5f7fa;
+        }
+        .accordion-section h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        .accordion-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .accordion {
+            width: 45%;
+        }
+        .accordion-item {
+            border-bottom: 1px solid #ddd;
+            width: 100%;
+        }
+        .accordion-title {
+            padding: 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .accordion-content {
+            display: none;
+            padding: 20px;
+            background-color: #fff;
+        }
+        .accordion-content.active {
+            display: block;
+        }
+        .accordion-image {
+            width: 45%;
+        }
+        .accordion-image img {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+        .accordion-image img.active {
+            display: block;
+        }
+        .past-consults-section {
+            padding: 60px 10%;
+            background-color: #ffffff;
+        }
+        .past-consults-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        .industry-slider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 10px;
+        }
+
+        .slider {
+            display: flex;
+            overflow: hidden;
+            width: 300px;
+            border-radius: 2rem;
+        }
+
+        .industry-slide {
+            min-width: 300px;
+            text-align: center;
+            font-size: 1.2rem;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .industry-slide.active {
+            background: #333;
+            color: #fff;
+        }
+
+        .slider-btn {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .slider-btn:hover {
+            background: #555;
+        }
+
+        .consult-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .consult-card {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .consult-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .consult-card h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .consult-card p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .consult-card .value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .testimonials-section {
+            padding: 60px 10%;
+            background-color: #f5f5f5;
+        }
+
+        .testimonials-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .testimonial-card {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .testimonial-card p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-card h4 {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .stars {
+            color: #FFD700;
+            font-size: 1.2rem;
+        }
+
+
+        .cta-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 10%;
+    background-color: #eaf6f6;
+    border-top: 2px solid #d1e7e7;
+}
+
+.cta-content {
+    max-width: 50%;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.cta-btn-primary {
+    background-color: #333;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cta-btn-primary:hover {
+    background-color: #555;
+}
+
+.cta-btn-secondary {
+    background-color: white;
+    color: #333;
+    padding: 15px 30px;
+    border: 2px solid #333;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cta-btn-secondary:hover {
+    background-color: #f2f2f2;
+}
+
+.cta-image {
+    max-width: 40%;
+}
+
+.cta-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Footer */
+.blog-footer {
+        background-color: #333;
+        color: #f8f9fa; /* Light text for contrast */
+        text-align: center;
+        padding: 20px;
+        border-top: 1px solid #444;
+    }
+
+    .blog-footer a {
+        color: #00bfa6; /* Greenish link for modern contrast */
+    }
+
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Build a Solution that will <span class="highlight-boost">BOOST</span> your business</h1>
+            <p>Custom-Built Solutions to Drive Your Success</p>
+            <p>Delivering innovative, data-driven projects tailored to your unique business needs</p>
+            <!-- Start a Project Button -->
+            <button class="cta-btn" onclick="openPopup()">Start a Project</button>
+
+            <!-- Popup Form -->
+            <div class="popup-overlay" id="popup-form">
+                <div class="popup-content">
+                    <span class="close-btn" onclick="closePopup()">&times;</span>
+                    <h2>Start a Project</h2>
+                    <p>Enter your details, and we'll get back to you shortly!</p>
+                    <form id="project-form" onsubmit="event.preventDefault(); sendProjectEmail();">
+                        <div class="form-group">
+                            <label for="popup-name">Full Name</label>
+                            <input type="text" id="popup-name" name="name" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="popup-email">Email Address</label>
+                            <input type="email" id="popup-email" name="email" placeholder="Enter your email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="popup-project">Project Type</label>
+                            <select id="popup-project" name="project" required>
+                                <option value="">-- Select a Project Type --</option>
+                                <option value="data-analysis">Data Analysis</option>
+                                <option value="ml-models">Data Engineering</option>
+                                <option value="data-engineering">Data Science</option>
+                                <option value="cloud-computing">Cloud Computing</option>
+                                <option value="custom-project">AI Engineer</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="popup-message">Project Details</label>
+                            <textarea id="popup-message" name="message" rows="4" placeholder="Tell us about your project" required></textarea>
+                        </div>
+                        <button type="submit" class="form-submit-btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="hero-image">
+            <img src="/ai-3-4.png" alt="Live Data Map Illustration">
+        </div>
+    </section>
+
+    <section class="accordion-section">
+        <h2 class="Title">Explore End-to-End Project Services</h2>
+        <div class="accordion-container">
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-title" onclick="toggleAccordion(this, 'image1')">
+                        Data Analyst <span>+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>
+                            <strong>Value Added:</strong>
+                            <ul>
+                                <li><strong>Improved Decision-Making:</strong> Transforms raw data into visual insights, enabling stakeholders to make informed decisions quickly.</li>
+                                <li><strong>Trend Identification:</strong> Analyzes historical data to uncover patterns and anticipate market or operational changes.</li>
+                                <li><strong>Customized Reporting:</strong> Delivers tailored reports for different departments, enhancing relevance and clarity.</li>
+                                <li><strong>Error Reduction:</strong> Cleans and validates data to minimize errors and ensure the accuracy of insights.</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-title" onclick="toggleAccordion(this, 'image2')">
+                        Data Engineer <span>+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>
+                            <strong>Value Added:</strong>
+                            <ul>
+                                <li><strong>Efficient Data Flow:</strong> Designs pipelines for seamless data movement, ensuring real-time accessibility for teams.</li>
+                                <li><strong>Scalable Systems:</strong> Builds infrastructure capable of handling growing data needs without bottlenecks.</li>
+                                <li><strong>Data Reliability:</strong> Implements validation and monitoring systems to ensure data integrity and quality.</li>
+                                <li><strong>Integration Across Systems:</strong> Unifies data from various platforms, providing a holistic view of business operations.</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-title" onclick="toggleAccordion(this, 'image3')">
+                        Data Scientist <span>+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>
+                            <strong>Value Added:</strong>
+                            <ul>
+                                <li><strong>Predictive Insights:</strong> Utilizes advanced modeling techniques to forecast trends, aiding in planning and resource allocation.</li>
+                                <li><strong>Optimization:</strong> Develops algorithms to optimize processes and improve efficiency across operations.</li>
+                                <li><strong>Strategic Business Growth:</strong> Provides data-driven strategies to solve business challenges and discover new opportunities.</li>
+                                <li><strong>Automation of Analysis:</strong> Reduces repetitive tasks through automated workflows, delivering real-time insights.</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-title" onclick="toggleAccordion(this, 'image4')">
+                        Cloud Computing <span>+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>
+                            <strong>Value Added:</strong>
+                            <ul>
+                                <li><strong>Scalability:</strong> Configures cloud systems to scale based on business needs, ensuring flexibility and cost-efficiency.</li>
+                                <li><strong>Enhanced Security:</strong> Applies best practices like encryption and compliance to safeguard data.</li>
+                                <li><strong>Cost Optimization:</strong> Reduces costs through pay-as-you-go models and eliminates expensive on-premise setups.</li>
+                                <li><strong>Global Accessibility:</strong> Enables teams to collaborate from anywhere with secure, remote data access.</li>
+                                <li><strong>High Availability:</strong> Designs systems with minimal downtime for uninterrupted operations.</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-title" onclick="toggleAccordion(this, 'image5')">
+                        AI Engineer <span>+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>
+                            <strong>Value Added:</strong>
+                            <ul>
+                                <li><strong>Automation:</strong> Develops AI systems to automate repetitive tasks, saving time and resources.</li>
+                                <li><strong>Enhanced Decision Support:</strong> Creates intelligent systems for analyzing data and providing actionable insights.</li>
+                                <li><strong>Personalization:</strong> Builds models that deliver tailored user experiences, boosting engagement and satisfaction.</li>
+                                <li><strong>Efficiency Gains:</strong> Implements solutions that optimize workflows and reduce operational costs.</li>
+                                <li><strong>Innovation Enablement:</strong> Introduces cutting-edge AI technologies that drive innovation and give businesses a competitive edge.</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-image">
+                <img style="border-radius: 2rem;" id="image1" src="/Analyst.gif" alt="Data Discovery Illustration">
+                <img style="border-radius: 2rem; height: 70%;" id="image2" src="/dengineer.gif" alt="Data Classification Illustration">
+                <img style="border-radius: 2rem;" id="image3" src="/dscience.gif" alt="AI Strategy Illustration">
+                <img style="border-radius: 2rem; " id="image4" src="/Cloud.gif" alt="Cloud Migration Illustration">
+                <img style="border-radius: 2rem;" id="image5" src="/Aiproj.gif" alt="Cloud Migration Illustration">
+            </div>
+        </div>
+    </section>
+
+    <section class="past-consults-section">
+        <h2>Past Consulting Success Stories</h2>
+        <div class="industry-slider">
+            <button class="slider-btn prev" onclick="slideIndustry(-1)">&#8592;</button>
+            <div class="slider">
+                <div class="industry-slide active">Finance</div>
+            </div>
+            <button class="slider-btn next" onclick="slideIndustry(1)">&#8594;</button>
+        </div>
+        <div class="consult-grid">
+            <!-- Initial grid will be populated via JavaScript -->
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <h2>Client Testimonials</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <h4>John Doe, CTO at TechCorp</h4>
+                <p>"The AI solutions provided exceeded our expectations. We saw a remarkable improvement in operational efficiency."</p>
+                <div class="stars">★★★★★</div>
+            </div>
+            <div class="testimonial-card">
+                <h4>Jane Smith, Manager at RetailWave</h4>
+                <p>"Their data migration process was seamless, and their expertise is unmatched in the industry."</p>
+                <div class="stars">★★★★☆</div>
+            </div>
+            <div class="testimonial-card">
+                <h4>Emily Carter, CEO at FinTechX</h4>
+                <p>"We achieved 30% faster data processing with their customized cloud solutions. Highly recommend them!"</p>
+                <div class="stars">★★★★★</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Let’s get started</h2>
+            <p>Ready to level up your data strategy? We're here to help.</p>
+            <div class="cta-buttons">
+                <button class="cta-btn" onclick="openPopup()">Start a Project</button>  
+                <button class="cta-btn-secondary">Watch a Video</button>
+            </div>
+        </div>
+        <div class="cta-image">
+            <img src="/footerproj.jpg" alt="Person working on data solutions">
+        </div>
+    </section>
+    
+    <footer class="blog-footer">
+        <div class="footer-content">
+            <p>© 2025 Research Insights. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="https://github.com/amadoudialloa" class="social" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="40" height="40" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/alpha-a-diallo23" class="social" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="40" height="40" viewBox="0 0 24 24">
+                        <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+    emailjs.init({
+        publicKey: "uk0oojPJxLHfRUMV3",
+    });
+    })();
+    </script>
+
+    <script>
+
+// Open Popup
+function openPopup() {
+    document.getElementById("popup-form").style.display = "flex";
+}
+
+// Close Popup
+function closePopup() {
+    document.getElementById("popup-form").style.display = "none";
+}
+
+
+// Send Email using EmailJS
+function sendProjectEmail() {
+    let params = {
+        name: document.getElementById("popup-name").value,
+        email: document.getElementById("popup-email").value,
+        project: document.getElementById("popup-project").value,
+        message: document.getElementById("popup-message").value,
+    };
+
+    emailjs.send("service_c1vctti", "template_5u4fhgb", params, "uk0oojPJxLHfRUMV3")
+        .then(function (response) {
+            alert("Your project request has been sent successfully! We'll get back to you soon.");
+            document.getElementById("project-form").reset(); // Clear the form
+            closePopup(); // Close the popup
+        })
+        .catch(function (error) {
+            alert("There was an error sending your request. Please try again later.");
+            console.error("EmailJS Error: ", error);
+        });
+}
+
+
+
+function toggleAccordion(element, imageId) {
+    const content = element.nextElementSibling;
+    const icon = element.querySelector('span');
+    const allContents = document.querySelectorAll('.accordion-content');
+    const allImages = document.querySelectorAll('.accordion-image img');
+
+    if (content.classList.contains('active')) {
+        // If already active, close it
+        content.classList.remove('active');
+        icon.textContent = '+';
+        document.getElementById(imageId).classList.remove('active');
+    } else {
+        // Close all other accordions
+        allContents.forEach(item => item.classList.remove('active'));
+        allImages.forEach(img => img.classList.remove('active'));
+
+        // Open the current accordion
+        content.classList.add('active');
+        icon.textContent = '-';
+        document.getElementById(imageId).classList.add('active');
+    }
+}
+
+
+        let currentSlide = 0; // Default to the first industry
+
+        const industries = ["Telecommunications", "Retail", "Healthcare", "Finance"];
+        const industryData = {
+            Telecommunications: [
+                {
+                    title: "5G Network Optimization",
+                    description: "Assisted a telecom company in optimizing 5G infrastructure for urban areas.",
+                    value: "Value Delivered: 25% reduction in latency.",
+                },
+                {
+                    title: "Call Center Analytics",
+                    description: "Implemented AI-driven analytics for improved call center efficiency.",
+                    value: "Value Delivered: 30% increase in customer satisfaction.",
+                },
+            ],
+            Retail: [
+                {
+                    title: "Retail Analytics Optimization",
+                    description: "Worked with a leading retailer to optimize inventory management through predictive analytics.",
+                    value: "Value Delivered: 20% reduction in stockouts.",
+                },
+                {
+                    title: "Customer Purchase Insights",
+                    description: "Leveraged data science to predict customer buying trends and preferences.",
+                    value: "Value Delivered: 15% increase in sales.",
+                },
+            ],
+            Healthcare: [
+                {
+                    title: "Healthcare Data Integration",
+                    description: "Helped a healthcare provider integrate siloed patient data into a unified system for better care.",
+                    value: "Value Delivered: 30% improvement in data retrieval efficiency.",
+                },
+                {
+                    title: "AI for Patient Monitoring",
+                    description: "Developed AI models to monitor patients' health in real-time.",
+                    value: "Value Delivered: 40% reduction in critical incidents.",
+                },
+            ],
+            Finance: [
+                {
+                    title: "Fraud Detection System",
+                    description: "Implemented machine learning algorithms to detect fraudulent activities in financial transactions.",
+                    value: "Value Delivered: 95% accuracy in fraud detection.",
+                },
+                {
+                    title: "Risk Analysis Automation",
+                    description: "Automated financial risk assessments for a leading investment firm.",
+                    value: "Value Delivered: 50% reduction in analysis time.",
+                },
+            ],
+        };
+
+        function slideIndustry(direction) {
+            const slides = document.querySelector('.industry-slide');
+            const grid = document.querySelector('.consult-grid');
+
+            currentSlide = (currentSlide + direction + industries.length) % industries.length;
+
+            slides.textContent = industries[currentSlide]; // Update the industry-slide text
+
+            updateGrid(industries[currentSlide], grid);
+        }
+
+        function updateGrid(industry, grid) {
+            const data = industryData[industry];
+            grid.innerHTML = ""; // Clear the existing grid
+            data.forEach(item => {
+                const card = document.createElement('div');
+                card.classList.add('consult-card');
+                card.innerHTML = `
+                    <h3>${item.title}</h3>
+                    <p>${item.description}</p>
+                    <p class="value">${item.value}</p>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Initial setup
+        document.addEventListener("DOMContentLoaded", () => {
+            const initialIndustry = industries[currentSlide];
+            const grid = document.querySelector('.consult-grid');
+            const slides = document.querySelector('.industry-slide');
+            slides.textContent = initialIndustry;
+            updateGrid(initialIndustry, grid);
+        });
+    </script>
+</body>
+</html>
+
+
