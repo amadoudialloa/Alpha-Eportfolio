@@ -363,7 +363,7 @@ textarea {
     
     
 
-    <section id="book-consult" class="consultation-section">
+   <section id="book-consult" class="consultation-section">
         <h2>Book Your Consultation</h2>
         <p>Fill out the form below to schedule your consultation, and we’ll get back to you shortly!</p>
         <form id="consultation-form" onsubmit="event.preventDefault(); sendMail();">
@@ -376,14 +376,14 @@ textarea {
                 <input type="email" id="email" name="email" placeholder="Enter your email address" required>
             </div>
             <div class="form-group">
-                <label for="service">Service Needed</label>
+                <label for="service">Whats Your Industry</label>
                 <select id="service" name="service" required>
-                    <option value="">-- Select a Service --</option>
-                    <option value="ai-strategy">AI Strategy Development</option>
-                    <option value="data-architecture">Data Architecture Optimization</option>
-                    <option value="ml-models">Machine Learning Models</option>
-                    <option value="cloud-migration">Cloud Data Migration</option>
-                    <option value="custom-solution">Custom Solution</option>
+                    <option value="">-- Telecommunications --</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Healthcare">Healthcare</option>
+                    <option value="Retail">Retail</option>
+                    <option value="Logistics">Logistics</option>
+                    <option value="Media">Media</option>
                 </select>
             </div>
             <div class="form-group">
@@ -431,10 +431,11 @@ textarea {
 </script>
 <script>
 
-        function scrollToBooking() {
+    function scrollToBooking() {
         const bookingSection = document.getElementById('book-consult');
         bookingSection.scrollIntoView({ behavior: 'smooth' });
     }   
+
 
     function sendMail() {
     let params = {
@@ -459,5 +460,5 @@ textarea {
 
 
 
-</html>
 
+</html>
