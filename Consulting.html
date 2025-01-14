@@ -363,7 +363,7 @@ textarea {
     
     
 
-    <section id="book-consultation" class="consultation-section">
+    <section id="book-consult" class="consultation-section">
         <h2>Book Your Consultation</h2>
         <p>Fill out the form below to schedule your consultation, and we’ll get back to you shortly!</p>
         <form id="consultation-form" onsubmit="event.preventDefault(); sendMail();">
@@ -430,6 +430,12 @@ textarea {
    })();
 </script>
 <script>
+
+        function scrollToBooking() {
+        const bookingSection = document.getElementById('book-consult');
+        bookingSection.scrollIntoView({ behavior: 'smooth' });
+    }   
+
     function sendMail() {
     let params = {
         name: document.getElementById("name").value,
@@ -449,10 +455,6 @@ textarea {
         });
 }
 
-         function scrollToBooking() {
-        const bookingSection = document.getElementById('book-consult');
-        bookingSection.scrollIntoView({ behavior: 'smooth' });
-    }
 </script>
 
 
