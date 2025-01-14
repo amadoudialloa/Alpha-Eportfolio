@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+ /* General Styles */
+body {
+    margin: 0;
+    font-family: 'Georgia', serif; /* News-like font */
+    line-height: 1.6;
+    color: #222; /* Darker text for a more formal look */
+    background-color: #f4f4f4; /* Off-white background */
+}
+
+a {
+    color: #0056b3; /* Classic blue for links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header */
+.blog-header {
+    background: #f8f9fa; /* Light gray background */
+    color: #222; /* Dark gray text */
+    text-align: center;
+    padding: 20px 10%;
+    border-bottom: 1px solid #ddd; /* Subtle border for a structured look */
+}
+
+.blog-header h1 {
+    font-family: 'Times New Roman', Times, serif; /* Newspaper-like font */
+    font-size: 3.5rem;
+    font-style: italic; /* Italicized for a classic look */
+    margin-bottom: 10px;
+}
+
+.blog-header p {
+    font-size: 1.2rem;
+    margin-top: 0;
+    color: #555; /* Muted gray for subtitle text */
+}
+
+/* Hero Section */
+.hero {
+    padding: 40px 10%;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #ddd;
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.featured-article {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.featured-article img {
+    width: 40%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.featured-article .article-content {
+    flex: 1;
+}
+
+.featured-article h3 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    font-style: italic;
+    color: #222;
+}
+
+.featured-article p {
+    margin-bottom: 20px;
+    color: #555;
+    font-size: 1rem;
+}
+
+.featured-article .read-more {
+    font-weight: bold;
+    color: #0056b3;
+    text-decoration: none;
+}
+
+.featured-article .read-more:hover {
+    text-decoration: underline;
+    color: #003f8a;
+}
+
+
+
+/* Research Grid */
+.research-grid {
+    padding: 40px 10%;
+    background-color: #f4f4f4; /* Off-white background for a neutral feel */
+}
+
+.research-grid h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-style: italic;
+    margin-bottom: 40px;
+    color: #222;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.research-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #ccc;
+}
+
+.research-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.research-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.research-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    font-style: italic;
+    color: #222;
+}
+
+.research-card p {
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.read-more {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Footer */
+.blog-footer {
+    background: #222; /* Dark footer */
+    color: #f8f9fa; /* Light text for contrast */
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #444;
+}
+
+.blog-footer a {
+    color: #00bfa6; /* Greenish link for modern contrast */
+}
+
+
+    </style>
+</head>
+<body>
+    <header class="blog-header">
+        <h1>Research Insights</h1>
+        <p>Explore the latest research and studies in Data Science, AI, and Business</p>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Featured Research</h2>
+                <article class="featured-article">
+                    <img src="/article.png" alt="Innovations in Healthcare at CES 2025">
+                    <div class="article-content">
+                        <h3>Revolutionizing Healthcare: Innovations Unveiled at CES 2025</h3>
+                        <p>
+                            Explore the groundbreaking technologies presented at CES 2025 that are set to redefine healthcare.
+                            From AI-powered diagnostics to wearable devices, discover how innovation is shaping the future of medical care.
+                        </p>
+                        <a href="https://electronics360.globalspec.com/article/21815/revolutionizing-healthcare-innovations-unveiled-at-ces-2025" 
+                           class="read-more" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                           Read Full Article →
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        
+
+        <!-- Research Grid -->
+        <section class="research-grid">
+            <h2>Latest Research</h2>
+            <div class="grid">
+                <article class="research-card">
+                    <img src="/baseaball.png" alt="Research 1">
+                    <h3>Home Runs and Pitching Strategies</h3>
+                    <p>Optimizing Batting and Pitching Strategies: Insights into Home Runs and Pitch Metrics</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </article>
+                <article class="research-card">
+                    <img src="/research-2.jpg" alt="Research 2">
+                    <h3>Predictive Analytics in Retail</h3>
+                    <p>Explore how retailers use data to predict trends and optimize supply chains.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </article>
+                <article class="research-card">
+                    <img src="/research-3.jpg" alt="Research 3">
+                    <h3>Ethics in Artificial Intelligence</h3>
+                    <p>Delve into the ethical considerations and challenges of implementing AI at scale.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </article>
+                <article class="research-card">
+                    <img src="/research-4.jpg" alt="Research 4">
+                    <h3>Data Security in Cloud Computing</h3>
+                    <p>Understand the latest trends in securing sensitive information in the cloud.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="blog-footer">
+        <div class="footer-content">
+            <p>© 2025 Research Insights. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="https://github.com/amadoudialloa" class="social" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="40" height="40" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/alpha-a-diallo23" class="social" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="40" height="40" viewBox="0 0 24 24">
+                        <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>
+
+
