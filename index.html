@@ -259,7 +259,12 @@
             </div>
         </footer>
     </section>
-    <script src="app.js"></script>
+    <script src="app.js">
+         function scrollToBooking() {
+        const bookingSection = document.getElementById('book-consult');
+        bookingSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    </script>
 </body>
 
 </html>
