@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://leaflet.github.io/Leaflet.heat/dist/leaflet-heat.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
+
     <style>
         body, html {
             margin: 0;
@@ -320,49 +322,306 @@
             color: #000;
         }
 
-        .testimonials-section {
-            padding: 60px 10%;
-            background-color: #f5f5f5;
+        .popup-overlay-unique {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+    }
+    .popup-content-unique {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        max-width: 500px;
+        width: 90%;
+        transform: translate(60%, 10%);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        overflow-y: auto;
+        max-height: 80%; /* Ensures content fits within viewport */
+        position: relative;
+    }
+    .close-btn-unique {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+    .form-group-unique {
+        margin-bottom: 15px;
+    }
+    .form-group-unique label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    .form-group-unique input,
+    .form-group-unique select,
+    .form-group-unique textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    .submit-btn-unique {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .submit-btn-unique:hover {
+        background-color: #555;
+    }
+    .testimonials-section {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 70px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            margin-bottom: 70px;  /* Adjust this value to increase spacing */
         }
 
         .testimonials-section h2 {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 40px;
-            color: #333;
-        }
+    text-align: center;
+    font-size: 24px;  /* Adjust font size if needed */
+    font-weight: bold;
+    margin-bottom: 20px;  /* Adds spacing below the title */
+}
 
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+
+        .testimonials-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
         }
 
         .testimonial-card {
-            background-color: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+        .testimonial-card .stars {
+            color: #FFD700;
+            font-size: 18px;
         }
 
-        .testimonial-card p {
-            font-size: 1rem;
-            color: #555;
+        .arrows {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: 50%;
+            width: 90%;
+            padding: 100 0px;
+            transform: translateY(-50%);
+            
+        }
+
+        .arrow-btn {
+            background-color: #000000;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 50%;
+        }
+
+        .arrow-btn:first-child {
+    position: absolute;
+    left: -60px; /* Move left arrow more to the left */
+}
+
+.arrow-btn:last-child {
+    position: absolute;
+    right: 10px; /* Move right arrow more to the right */
+}
+
+
+        .arrow-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .add-review-btn {
+            background-color: #000000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: block;  /* Ensure it takes up its own line */
+        }
+
+        .add-review-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .close-btn {
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .form-group {
+            text-align: left;
             margin-bottom: 15px;
         }
 
-        .testimonial-card h4 {
-            font-size: 1.2rem;
-            color: #333;
-            margin-bottom: 10px;
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
         }
 
-        .stars {
-            color: #FFD700;
-            font-size: 1.2rem;
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
+
+        .submit-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+
+        .add-review-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .add-review-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .close-btn {
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .submit-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+
+        .add-review-btn {
+            background-color: #08121d;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .add-review-btn:hover {
+            background-color: #0056b3;
+        }
+    .stars-unique {
+        color: #FFD700;
+        font-size: 1.2rem;
+    }
 
 
         .cta-section {
@@ -446,7 +705,8 @@
         color: #00bfa6; /* Greenish link for modern contrast */
     }
 
-        #videoPopup {
+
+    #videoPopup {
       display: none;
       position: fixed;
       top: 50%;
@@ -492,7 +752,6 @@
       background: rgba(0, 0, 0, 0.5);
       z-index: 9998;
     }
-        
     </style>
 </head>
 <body>
@@ -542,12 +801,12 @@
 
         </div>
         <div class="hero-image">
-            <img src="ai-3-4.png" alt="Live Data Map Illustration">
+            <img src="/ai-3-4.png" alt="Live Data Map Illustration">
         </div>
     </section>
 
     <section class="accordion-section">
-        <h2 class="Title">Explore End-to-End Project/Products Services</h2>
+        <h2 class="Title">Explore End-to-End Project Services</h2>
         <div class="accordion-container">
             <div class="accordion">
                 <div class="accordion-item">
@@ -634,17 +893,17 @@
                 </div>
             </div>
             <div class="accordion-image">
-                <img style="border-radius: 2rem;" id="image1" src="Analyst.gif" alt="Data Discovery Illustration">
-                <img style="border-radius: 2rem; height: 70%;" id="image2" src="dengineer.gif" alt="Data Classification Illustration">
-                <img style="border-radius: 2rem;" id="image3" src="dscience.gif" alt="AI Strategy Illustration">
-                <img style="border-radius: 2rem; " id="image4" src="Cloud.gif" alt="Cloud Migration Illustration">
-                <img style="border-radius: 2rem;" id="image5" src="Aiproj.gif" alt="Cloud Migration Illustration">
+                <img style="border-radius: 2rem;" id="image1" src="/Analyst.gif" alt="Data Discovery Illustration">
+                <img style="border-radius: 2rem; height: 70%;" id="image2" src="/dengineer.gif" alt="Data Classification Illustration">
+                <img style="border-radius: 2rem;" id="image3" src="/dscience.gif" alt="AI Strategy Illustration">
+                <img style="border-radius: 2rem; " id="image4" src="/Cloud.gif" alt="Cloud Migration Illustration">
+                <img style="border-radius: 2rem;" id="image5" src="/Aiproj.gif" alt="Cloud Migration Illustration">
             </div>
         </div>
     </section>
 
     <section class="past-consults-section">
-        <h2>Past Consulting Success Stories</h2>
+        <h2>Let's Build Together 🚀</h2>
         <div class="industry-slider">
             <button class="slider-btn prev" onclick="slideIndustry(-1)">&#8592;</button>
             <div class="slider">
@@ -659,24 +918,59 @@
 
     <section class="testimonials-section">
         <h2>Client Testimonials</h2>
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <h4>John Doe, CTO at TechCorp</h4>
-                <p>"The AI solutions provided exceeded our expectations. We saw a remarkable improvement in operational efficiency."</p>
-                <div class="stars">★★★★★</div>
-            </div>
-            <div class="testimonial-card">
-                <h4>Jane Smith, Manager at RetailWave</h4>
-                <p>"Their data migration process was seamless, and their expertise is unmatched in the industry."</p>
-                <div class="stars">★★★★☆</div>
-            </div>
-            <div class="testimonial-card">
-                <h4>Emily Carter, CEO at FinTechX</h4>
-                <p>"We achieved 30% faster data processing with their customized cloud solutions. Highly recommend them!"</p>
-                <div class="stars">★★★★★</div>
-            </div>
+        <div class="arrows">
+            <button class="arrow-btn" onclick="scrollTestimonials(-1)">&#8592;</button>
+            <button class="arrow-btn" onclick="scrollTestimonials(1)">&#8594;</button>
         </div>
+        <div class="testimonials-container" id="testimonials-container">
+            <!-- Testimonials will be dynamically added here -->
+        </div>
+        <button class="add-review-btn" onclick="openReviewPopup()">Leave a Review</button>
     </section>
+
+    <!-- Popup Form -->
+    <!-- Popup Form -->
+    <div class="popup-overlay" id="review-popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closeReviewPopup()">&times;</span>
+            <h2>Submit a Testimonial</h2>
+            <form id="testimonial-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <input type="text" id="role" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <input type="text" id="company" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">Service Provided</label>
+                    <select id="service" required>
+                        <option value="Data Analyst">Data Analyst</option>
+                        <option value="Data Engineer">Data Engineer</option>
+                        <option value="Data Scientist">Data Scientist</option>
+                        <option value="Cloud Computing">Cloud Computing</option>
+                        <option value="AI Engineer">AI Engineer</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="stars">Star Rating</label>
+                    <input type="number" id="stars" min="1" max="5" required>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+    
 
     <section class="cta-section">
         <div class="cta-content">
@@ -697,7 +991,7 @@
   </div>
         </div>
         <div class="cta-image">
-            <img src="footerproj.jpg" alt="Person working on data solutions">
+            <img src="/footerproj.jpg" alt="Person working on data solutions">
         </div>
     </section>
     
@@ -791,59 +1085,85 @@ function toggleAccordion(element, imageId) {
     }
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+    // Replace with your Google Sheets "Published to Web" URL
+    const googleSheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRZiRSRFrkG9dZWE_o5EmYf8Q8v24ok3FmWkSJLOs_88DH7aCuhhdU89yzOw9RdAwPQOrRBmkJoC5xH/pubhtml";
+
+    Tabletop.init({
+        key: googleSheetURL,
+        simpleSheet: true,
+        callback: function (data) {
+            const testimonialsGrid = document.getElementById('testimonials-grid');
+            testimonialsGrid.innerHTML = ''; // Clear existing testimonials
+
+            data.filter(item => item.Status === 'Approved').forEach(testimonial => {
+                const card = document.createElement('div');
+                card.className = 'testimonial-card';
+                card.innerHTML = `
+                    <h4>${testimonial['Full Name']}, ${testimonial['Role']} at ${testimonial['Company']}</h4>
+                    <p>"${testimonial['Description']}"</p>
+                    <div class="stars">${'★'.repeat(testimonial['Star Rating'])}${'☆'.repeat(5 - testimonial['Star Rating'])}</div>
+                `;
+                testimonialsGrid.appendChild(card);
+            });
+        }
+    });
+});
+
+
 
         let currentSlide = 0; // Default to the first industry
 
         const industries = ["Telecommunications", "Retail", "Healthcare", "Finance"];
         const industryData = {
             Telecommunications: [
-                {
-                    title: "5G Network Optimization",
-                    description: "Assisted a telecom company in optimizing 5G infrastructure for urban areas.",
-                    value: "Value Delivered: 25% reduction in latency.",
+                { 
+                    title: "5G Optimization Tool",
+                    description: "Let's build an AI-based tool to optimize 5G infrastructure for better connectivity.",
+                    value: "Value-Add: 25% reduction in network latency."
                 },
-                {
+                { 
                     title: "Call Center Analytics",
-                    description: "Implemented AI-driven analytics for improved call center efficiency.",
-                    value: "Value Delivered: 30% increase in customer satisfaction.",
-                },
+                    description: "Let's build a sentiment analysis model to improve customer service experiences.",
+                    value: "Value-Add: 30% increase in customer satisfaction."
+                }
             ],
             Retail: [
-                {
-                    title: "Retail Analytics Optimization",
-                    description: "Worked with a leading retailer to optimize inventory management through predictive analytics.",
-                    value: "Value Delivered: 20% reduction in stockouts.",
+                { 
+                    title: "AI-Powered Inventory System",
+                    description: "Let's build a smart inventory system that restocks items dynamically.",
+                    value: "Value-Add: 15% reduction in stockouts."
                 },
-                {
-                    title: "Customer Purchase Insights",
-                    description: "Leveraged data science to predict customer buying trends and preferences.",
-                    value: "Value Delivered: 15% increase in sales.",
-                },
+                { 
+                    title: "Personalized Product Recommendations",
+                    description: "Let's build a recommendation engine that suggests products based on user behavior.",
+                    value: "Value-Add: 20% boost in online sales."
+                }
             ],
             Healthcare: [
-                {
-                    title: "Healthcare Data Integration",
-                    description: "Helped a healthcare provider integrate siloed patient data into a unified system for better care.",
-                    value: "Value Delivered: 30% improvement in data retrieval efficiency.",
-                },
-                {
+                { 
                     title: "AI for Patient Monitoring",
-                    description: "Developed AI models to monitor patients' health in real-time.",
-                    value: "Value Delivered: 40% reduction in critical incidents.",
+                    description: "Let's build a real-time patient health monitoring system to detect issues early.",
+                    value: "Value-Add: 40% reduction in critical health incidents."
                 },
+                { 
+                    title: "Predictive Disease Diagnosis",
+                    description: "Let's build a machine learning model to detect diseases in their early stages.",
+                    value: "Value-Add: 35% increase in early disease detection."
+                }
             ],
             Finance: [
-                {
+                { 
                     title: "Fraud Detection System",
-                    description: "Implemented machine learning algorithms to detect fraudulent activities in financial transactions.",
-                    value: "Value Delivered: 95% accuracy in fraud detection.",
+                    description: "Let's build an AI-powered fraud detection model to prevent financial crimes.",
+                    value: "Value-Add: 95% accuracy in fraud detection."
                 },
-                {
-                    title: "Risk Analysis Automation",
-                    description: "Automated financial risk assessments for a leading investment firm.",
-                    value: "Value Delivered: 50% reduction in analysis time.",
-                },
-            ],
+                { 
+                    title: "Risk Analysis Dashboard",
+                    description: "Let's build an automated risk assessment tool for better investment decisions.",
+                    value: "Value-Add: 50% reduction in analysis time."
+                }
+            ]
         };
 
         function slideIndustry(direction) {
@@ -871,6 +1191,93 @@ function toggleAccordion(element, imageId) {
                 grid.appendChild(card);
             });
         }
+
+
+        // reviews
+
+        let currentTestimonial = 0;
+        let testimonialsData = [];
+
+        document.addEventListener("DOMContentLoaded", function () {
+            fetchTestimonials();
+        });
+
+        function fetchTestimonials() {
+            fetch("https://script.google.com/macros/s/AKfycbzXFZYaYKbBd9WoG_35Ls8WacqlfIpIp28U-xYVMXPp6VhGFJ45MSfx31OCFMAi4O8Z/exec")
+                .then(response => response.json())
+                .then(data => {
+                    if (Array.isArray(data) && data.length > 0) {
+                        testimonialsData = data;
+                        displayTestimonial(0);
+                    }
+                })
+                .catch(error => console.error("Error fetching testimonials:", error));
+        }
+
+        function displayTestimonial(index) {
+            const testimonialsContainer = document.getElementById("testimonials-container");
+            testimonialsContainer.innerHTML = "";
+
+            if (testimonialsData.length > 0) {
+                const testimonial = testimonialsData[index];
+                const card = document.createElement("div");
+                card.classList.add("testimonial-card");
+                card.innerHTML = `
+                    <h4><b>${testimonial.name}, ${testimonial.role} at ${testimonial.company}</b></h4>
+                    <p>"${testimonial.description}"</p>
+                    <div class="stars">${"★".repeat(testimonial.stars)}${"☆".repeat(5 - testimonial.stars)}</div>
+                `;
+                testimonialsContainer.appendChild(card);
+            }
+        }
+
+        function scrollTestimonials(direction) {
+            currentTestimonial += direction;
+            if (currentTestimonial < 0) {
+                currentTestimonial = testimonialsData.length - 1;
+            } else if (currentTestimonial >= testimonialsData.length) {
+                currentTestimonial = 0;
+            }
+            displayTestimonial(currentTestimonial);
+        }
+
+        document.getElementById("testimonial-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const formData = new FormData();
+            formData.append("name", document.getElementById("name").value);
+            formData.append("role", document.getElementById("role").value);
+            formData.append("company", document.getElementById("company").value);
+            formData.append("service", document.getElementById("service").value);
+            formData.append("description", document.getElementById("description").value);
+            formData.append("stars", document.getElementById("stars").value);
+
+            fetch("https://script.google.com/macros/s/AKfycbzXFZYaYKbBd9WoG_35Ls8WacqlfIpIp28U-xYVMXPp6VhGFJ45MSfx31OCFMAi4O8Z/exec", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert("Your testimonial has been submitted for approval.");
+                closeReviewPopup();
+            })
+            .catch(error => {
+                alert("There was an issue submitting your testimonial. Please try again.");
+                console.error("Error:", error);
+            });
+        });
+
+        function openReviewPopup() {
+            document.getElementById("review-popup").style.display = "flex";
+        }
+
+        function closeReviewPopup() {
+            document.getElementById("review-popup").style.display = "none";
+        }
+
+
+
+
 
         // Initial setup
         document.addEventListener("DOMContentLoaded", () => {
@@ -911,5 +1318,4 @@ function toggleAccordion(element, imageId) {
     </script>
 </body>
 </html>
-
 
