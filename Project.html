@@ -1115,57 +1115,70 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let currentSlide = 0; // Default to the first industry
 
-        const industries = ["Telecommunications", "Retail", "Healthcare", "Finance"];
-        const industryData = {
-            Telecommunications: [
-                { 
-                    title: "5G Optimization Tool",
-                    description: "Let's build an AI-based tool to optimize 5G infrastructure for better connectivity.",
-                    value: "Value-Add: 25% reduction in network latency."
-                },
-                { 
-                    title: "Call Center Analytics",
-                    description: "Let's build a sentiment analysis model to improve customer service experiences.",
-                    value: "Value-Add: 30% increase in customer satisfaction."
-                }
-            ],
-            Retail: [
-                { 
-                    title: "AI-Powered Inventory System",
-                    description: "Let's build a smart inventory system that restocks items dynamically.",
-                    value: "Value-Add: 15% reduction in stockouts."
-                },
-                { 
-                    title: "Personalized Product Recommendations",
-                    description: "Let's build a recommendation engine that suggests products based on user behavior.",
-                    value: "Value-Add: 20% boost in online sales."
-                }
-            ],
-            Healthcare: [
-                { 
-                    title: "AI for Patient Monitoring",
-                    description: "Let's build a real-time patient health monitoring system to detect issues early.",
-                    value: "Value-Add: 40% reduction in critical health incidents."
-                },
-                { 
-                    title: "Predictive Disease Diagnosis",
-                    description: "Let's build a machine learning model to detect diseases in their early stages.",
-                    value: "Value-Add: 35% increase in early disease detection."
-                }
-            ],
-            Finance: [
-                { 
-                    title: "Fraud Detection System",
-                    description: "Let's build an AI-powered fraud detection model to prevent financial crimes.",
-                    value: "Value-Add: 95% accuracy in fraud detection."
-                },
-                { 
-                    title: "Risk Analysis Dashboard",
-                    description: "Let's build an automated risk assessment tool for better investment decisions.",
-                    value: "Value-Add: 50% reduction in analysis time."
-                }
-            ]
-        };
+        const industries = ["Telecommunications", "Retail", "Healthcare", "Finance", "Energy"];
+const industryData = {
+    Telecommunications: [
+        { 
+            title: "5G Optimization Tool",
+            description: "Let's build an AI-based tool to optimize 5G infrastructure for better connectivity.",
+            value: "Value-Add: 25% reduction in network latency."
+        },
+        { 
+            title: "Call Center Analytics",
+            description: "Let's build a sentiment analysis model to improve customer service experiences.",
+            value: "Value-Add: 30% increase in customer satisfaction."
+        }
+    ],
+    Retail: [
+        { 
+            title: "AI-Powered Inventory System",
+            description: "Let's build a smart inventory system that restocks items dynamically.",
+            value: "Value-Add: 15% reduction in stockouts."
+        },
+        { 
+            title: "Personalized Product Recommendations",
+            description: "Let's build a recommendation engine that suggests products based on user behavior.",
+            value: "Value-Add: 20% boost in online sales."
+        }
+    ],
+    Healthcare: [
+        { 
+            title: "AI for Patient Monitoring",
+            description: "Let's build a real-time patient health monitoring system to detect issues early.",
+            value: "Value-Add: 40% reduction in critical health incidents."
+        },
+        { 
+            title: "Predictive Disease Diagnosis",
+            description: "Let's build a machine learning model to detect diseases in their early stages.",
+            value: "Value-Add: 35% increase in early disease detection."
+        }
+    ],
+    Finance: [
+        { 
+            title: "Fraud Detection System",
+            description: "Let's build an AI-powered fraud detection model to prevent financial crimes.",
+            value: "Value-Add: 95% accuracy in fraud detection."
+        },
+        { 
+            title: "Risk Analysis Dashboard",
+            description: "Let's build an automated risk assessment tool for better investment decisions.",
+            value: "Value-Add: 50% reduction in analysis time."
+        }
+    ],
+    Energy: [
+        { 
+            title: "Energy Demand Forecasting",
+            description: "Let's build a machine learning model that accurately forecasts energy demand to reduce waste and improve supply planning.",
+            value: "Value-Add: 25% improvement in grid efficiency and energy distribution."
+        },
+        { 
+            title: "Outage Prediction & Prevention",
+            description: "Let's develop an AI-powered system that detects early signs of equipment failure and predicts outages before they happen.",
+            value: "Value-Add: 40% reduction in unplanned downtime and maintenance costs."
+        }
+    ]
+};
+
 
         function slideIndustry(direction) {
             const slides = document.querySelector('.industry-slide');
